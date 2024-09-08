@@ -1,6 +1,18 @@
 package com.venkat.programs;
 
 import java.util.Random;
+/*
+Fibonacci Series: Generates the first n numbers of the Fibonacci sequence.
+Prime Number Check: Determines whether a given number is prime.
+Palindrome Check: Checks if a string is a palindrome.
+Factorial: Recursively calculates the factorial of a number.
+Armstrong Number: Checks if a number is an Armstrong number.
+Random Number Generation: Generates a random number using the Random class.
+Pattern Printing: Prints a pyramid pattern using *.
+Object Comparison: Compares two objects using .equals().
+Object Creation: Demonstrates object creation in Java.
+ASCII Value Printing: Prints the ASCII value of a given character.
+ */
 
 public class BasicJavaPrograms {
 

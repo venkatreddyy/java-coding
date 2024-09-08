@@ -2,7 +2,15 @@ package com.venkat.programs;
 
 import java.util.*;
 import java.util.stream.IntStream;
-
+/*
+Recursion and basic loops: Available since Java 1.0.
+StringBuilder: Available since Java 1.5.
+Math.pow(), Math.sqrt(): Available since Java 1.0.
+Streams API (IntStream): Introduced in Java 8.
+Bitwise XOR (^) for swapping numbers: Available since Java 1.0.
+Integer.bitCount(): Available since Java 1.5.
+Collections.reverse(): Available since Java 1.2.
+ */
 public class NumberProgramsJava17 {
 
     // 1) Reverse a Number in Java
