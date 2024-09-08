@@ -1,4 +1,4 @@
-package com.venkat.programs;
+package com.venkat.programs.advanced;
 
 public class LeftTrianglePattern
 {

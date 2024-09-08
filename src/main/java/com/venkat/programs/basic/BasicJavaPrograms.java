@@ -1,11 +1,22 @@
-package com.venkat.programs;
+package com.venkat.programs.basic;
 
 import java.util.Random;
+/*
+Fibonacci Series: Generates the first n numbers of the Fibonacci sequence.
+Prime Number Check: Determines whether a given number is prime.
+Palindrome Check: Checks if a string is a palindrome.
+Factorial: Recursively calculates the factorial of a number.
+Armstrong Number: Checks if a number is an Armstrong number.
+Random Number Generation: Generates a random number using the Random class.
+Pattern Printing: Prints a pyramid pattern using *.
+Object Comparison: Compares two objects using .equals().
+Object Creation: Demonstrates object creation in Java.
+ASCII Value Printing: Prints the ASCII value of a given character.
+ */
 
-public class BasicProgramsJava17 {
+public class BasicJavaPrograms {
 
     // 1) Fibonacci Series in Java
-    // Uses basic loop constructs available since Java 1.0
     public static void printFibonacci(int n) {
         int a = 0, b = 1;
         System.out.print("Fibonacci Series: " + a + " " + b);
@@ -19,12 +30,11 @@ public class BasicProgramsJava17 {
     }
 
     // 2) Prime Number Program in Java
-    // Uses basic loops and math, available since Java 1.0
     public static boolean isPrime(int num) {
         if (num <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(num); i++) { // Math.sqrt() available since Java 1.0
+        for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
                 return false;
             }
@@ -33,14 +43,12 @@ public class BasicProgramsJava17 {
     }
 
     // 3) Palindrome Program in Java
-    // StringBuilder introduced in Java 1.5
     public static boolean isPalindrome(String str) {
-        String reversed = new StringBuilder(str).reverse().toString(); // StringBuilder.reverse() since Java 1.5
+        String reversed = new StringBuilder(str).reverse().toString();
         return str.equals(reversed);
     }
 
     // 4) Factorial Program in Java
-    // Uses recursion, available since Java 1.0
     public static int factorial(int n) {
         if (n == 0 || n == 1) {
             return 1;
@@ -49,26 +57,23 @@ public class BasicProgramsJava17 {
     }
 
     // 5) Armstrong Number in Java
-    // Math.pow() available since Java 1.0
     public static boolean isArmstrong(int num) {
-        int original = num, sum = 0, digits = String.valueOf(num).length(); // String.valueOf() since Java 1.0
+        int original = num, sum = 0, digits = String.valueOf(num).length();
         while (num > 0) {
             int digit = num % 10;
-            sum += Math.pow(digit, digits); // Math.pow() since Java 1.0
+            sum += Math.pow(digit, digits);
             num /= 10;
         }
         return sum == original;
     }
 
     // 6) How to Generate Random Number in Java
-    // Random class introduced in Java 1.0, nextInt() since Java 1.2
     public static int generateRandomNumber(int bound) {
-        Random random = new Random(); // Random class available since Java 1.0
-        return random.nextInt(bound); // nextInt() available since Java 1.2
+        Random random = new Random();
+        return random.nextInt(bound);
     }
 
     // 7) How to Print Pattern in Java (Example: Pyramid Pattern)
-    // Uses basic loops, available since Java 1.0
     public static void printPattern(int rows) {
         for (int i = 1; i <= rows; i++) {
             for (int j = rows; j > i; j--) {
@@ -82,22 +87,19 @@ public class BasicProgramsJava17 {
     }
 
     // 8) How to Compare Two Objects in Java
-    // .equals() is available since Java 1.0, supports custom object comparison
     public static boolean compareObjects(Object obj1, Object obj2) {
-        return obj1.equals(obj2); // equals() available since Java 1.0
+        return obj1.equals(obj2);
     }
 
     // 9) How to Create Object in Java
-    // Object creation syntax available since Java 1.0
     public static void createObjectExample() {
-        BasicProgramsJava17 obj = new BasicProgramsJava17(); // Object creation syntax since Java 1.0
-        System.out.println("Object Created: " + obj.toString()); // toString() since Java 1.0
+        BasicJavaPrograms obj = new BasicJavaPrograms();
+        System.out.println("Object Created: " + obj.toString());
     }
 
     // 10) How to Print ASCII Value in Java
-    // Casting to int for ASCII values, available since Java 1.0
     public static void printAsciiValue(char ch) {
-        int ascii = (int) ch; // Casting to int since Java 1.0
+        int ascii = (int) ch;
         System.out.println("ASCII value of '" + ch + "' is: " + ascii);
     }
 
@@ -129,8 +131,8 @@ public class BasicProgramsJava17 {
         printPattern(5);
 
         // Test Object Comparison
-        BasicProgramsJava17 obj1 = new BasicProgramsJava17();
-        BasicProgramsJava17 obj2 = new BasicProgramsJava17();
+        BasicJavaPrograms obj1 = new BasicJavaPrograms();
+        BasicJavaPrograms obj2 = new BasicJavaPrograms();
         System.out.println("Objects are equal: " + compareObjects(obj1, obj2));
 
         // Test Object Creation
