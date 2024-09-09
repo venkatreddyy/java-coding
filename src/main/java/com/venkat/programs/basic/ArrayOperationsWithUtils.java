@@ -10,7 +10,7 @@ Arrays.copyOf(): Available since Java 6, this method copies arrays efficiently.
 Enhanced collections (HashMap.getOrDefault()): This is a Java 8 feature that simplifies accessing default values from a Map.
 This class leverages modern Java features while being backward compatible with Java 17.
  */
-public class ArrayOperations {
+public class ArrayOperationsWithUtils {
 
     // 1) Copy all elements of one array into another array
     public static int[] copyArray(int[] array) {

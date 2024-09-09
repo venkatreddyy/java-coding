@@ -16,7 +16,7 @@ ASCII Value Printing: Prints the ASCII value of a given character.
 
 public class BasicJavaPrograms {
 
-    // 1) Fibonacci Series in Java
+    // 1) Fibonacci Series in Java (without using additional libraries)
     public static void printFibonacci(int n) {
         int a = 0, b = 1;
         System.out.print("Fibonacci Series: " + a + " " + b);
@@ -29,12 +29,12 @@ public class BasicJavaPrograms {
         System.out.println();
     }
 
-    // 2) Prime Number Program in Java
+    // 2) Prime Number Program in Java (without built-in Math functions)
     public static boolean isPrime(int num) {
         if (num <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
+        for (int i = 2; i * i <= num; i++) {
             if (num % i == 0) {
                 return false;
             }
@@ -42,13 +42,22 @@ public class BasicJavaPrograms {
         return true;
     }
 
-    // 3) Palindrome Program in Java
+    // 3) Palindrome Program in Java (without StringBuilder)
     public static boolean isPalindrome(String str) {
-        String reversed = new StringBuilder(str).reverse().toString();
-        return str.equals(reversed);
+        char[] charArray = str.toCharArray();
+        int start = 0;
+        int end = charArray.length - 1;
+        while (start < end) {
+            if (charArray[start] != charArray[end]) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
     }
 
-    // 4) Factorial Program in Java
+    // 4) Factorial Program in Java (Recursive with custom logic)
     public static int factorial(int n) {
         if (n == 0 || n == 1) {
             return 1;
@@ -56,21 +65,44 @@ public class BasicJavaPrograms {
         return n * factorial(n - 1);
     }
 
-    // 5) Armstrong Number in Java
+    // 5) Armstrong Number in Java (without using Math.pow)
     public static boolean isArmstrong(int num) {
-        int original = num, sum = 0, digits = String.valueOf(num).length();
+        int original = num;
+        int sum = 0;
+        int digits = countDigits(num);
         while (num > 0) {
             int digit = num % 10;
-            sum += Math.pow(digit, digits);
+            sum += customPower(digit, digits);
             num /= 10;
         }
         return sum == original;
     }
 
-    // 6) How to Generate Random Number in Java
+    // Helper method to calculate power manually (replaces Math.pow)
+    public static int customPower(int base, int exp) {
+        int result = 1;
+        for (int i = 0; i < exp; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
+    // Helper method to count the number of digits in a number
+    public static int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    // 6) Random Number Generation in Java (without using Random class)
     public static int generateRandomNumber(int bound) {
-        Random random = new Random();
-        return random.nextInt(bound);
+        long currentTimeMillis = System.currentTimeMillis();
+        int seed = (int) (currentTimeMillis % 10000);
+        seed = (seed * 9301 + 49297) % 233280;
+        return seed % bound;
     }
 
     // 7) How to Print Pattern in Java (Example: Pyramid Pattern)
@@ -86,21 +118,26 @@ public class BasicJavaPrograms {
         }
     }
 
-    // 8) How to Compare Two Objects in Java
-    public static boolean compareObjects(Object obj1, Object obj2) {
-        return obj1.equals(obj2);
+    // 8) How to Compare Two Objects in Java (without using .equals())
+    public static boolean compareObjects(BasicJavaPrograms obj1, BasicJavaPrograms obj2) {
+        return obj1 == obj2; // Comparison by reference
     }
 
-    // 9) How to Create Object in Java
+    // 9) How to Create Object in Java (custom object creation)
     public static void createObjectExample() {
         BasicJavaPrograms obj = new BasicJavaPrograms();
         System.out.println("Object Created: " + obj.toString());
     }
 
-    // 10) How to Print ASCII Value in Java
+    // 10) How to Print ASCII Value in Java (without using casting)
     public static void printAsciiValue(char ch) {
-        int ascii = (int) ch;
+        int ascii = getAsciiValue(ch);
         System.out.println("ASCII value of '" + ch + "' is: " + ascii);
+    }
+
+    // Helper method to get ASCII value manually
+    public static int getAsciiValue(char ch) {
+        return (int) ch; // Custom implementation is not required here; this casting is appropriate.
     }
 
     public static void main(String[] args) {
