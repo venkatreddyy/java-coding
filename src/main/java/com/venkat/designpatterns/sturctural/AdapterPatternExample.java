@@ -1,6 +1,13 @@
 package com.venkat.designpatterns.sturctural;
 
 // Existing Payment Gateway Interface
+/*
+The Adapter Pattern allows incompatible interfaces to work together. In this example,
+OldPayPal implements the legacy OldPaymentGateway interface, while the system now uses the NewPaymentGateway interface.
+The PaymentAdapter acts as a bridge, adapting the old payment interface to the new one.
+When processPayment() is called on the adapter, it internally uses the pay() method of the old gateway,
+making them compatible without changing the existing code. This pattern is useful for integrating old systems into new ones.
+ */
 interface OldPaymentGateway {
     void pay(String cardDetails, double amount);
 }

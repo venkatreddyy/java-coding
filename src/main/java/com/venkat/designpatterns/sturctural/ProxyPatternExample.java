@@ -1,5 +1,13 @@
 package com.venkat.designpatterns.sturctural;
 
+/*
+The Proxy Pattern provides a surrogate or placeholder to control access to an object.
+ In this example, the ShippingProxy class controls access to the RealShippingService.
+ The proxy ensures that access control checks are performed before delegating the actual work to the real service.
+ If the real service hasn't been instantiated yet, the proxy lazily creates it.
+ This pattern adds a level of indirection, allowing control over how and when a real object is accessed,
+ often used for lazy initialization, security, or logging.
+ */
 // Service Interface
 interface ShippingService {
     void shipOrder();
