@@ -1,0 +1,27 @@
+Structural, Creational, and Behavioral Patterns Overview:
+1. Creational Patterns:
+Factory Method: Creates different payment gateways.
+Abstract Factory: Creates families of related payment gateways and discount strategies.
+Builder: Builds complex Order objects with discounts, shipping, and invoice generation.
+Prototype: Clones objects like product configurations to reduce instantiation cost.
+Singleton: Ensures there's only one instance of the product catalog.
+2. Structural Patterns:
+Adapter: Adapts different payment gateway APIs to a standard interface.
+Bridge: Separates abstraction (payment) from implementation (gateway).
+Composite: Treats a product category and products uniformly in a tree structure.
+Decorator: Adds responsibilities like discounts or coupons dynamically to orders.
+Facade: Provides a simple interface for complex order processing.
+Flyweight: Reuses common product data like categories across multiple orders.
+Proxy: Controls access to external shipping services.
+3. Behavioral Patterns:
+Chain of Responsibility: Handles sequential operations like discount application.
+Command: Encapsulates payment, shipping, and order commands.
+Interpreter: Interprets discount rules from text form.
+Iterator: Traverses through the product catalog or order list.
+Mediator: Facilitates interaction between different systems (order, invoice, shipping).
+Memento: Saves and restores the state of an order (undo/redo functionality).
+Observer: Notifies systems (customer notification, inventory) of order status changes.
+State: Manages the order’s state (new, processed, shipped, delivered).
+Strategy: Selects different discount strategies or shipping methods dynamically.
+Template Method: Provides a template for order processing but allows customization.
+Visitor: Applies operations (e.g., tax calculation, reporting) to orders without changing their structure.

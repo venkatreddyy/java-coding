@@ -1,6 +1,5 @@
 package com.venkat.features;
 
-import java.util.concurrent.atomic.AtomicInteger;
 class Counter {
     private int count = 0;
 
