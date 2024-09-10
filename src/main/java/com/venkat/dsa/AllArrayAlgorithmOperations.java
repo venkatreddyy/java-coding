@@ -1,6 +1,6 @@
 package com.venkat.dsa;
 
-public class DsaArrayOperations {
+public class AllArrayAlgorithmOperations {
 
     // Bubble Sort
     /*
@@ -127,7 +127,7 @@ public class DsaArrayOperations {
 
     // Main method to test sorting and searching algorithms
     public static void main(String[] args) {
-        DsaArrayOperations ops = new DsaArrayOperations();
+        AllArrayAlgorithmOperations ops = new AllArrayAlgorithmOperations();
         int[] arr = {64, 34, 25, 12, 22, 11, 90};
 
         ops.bubbleSort(arr);
