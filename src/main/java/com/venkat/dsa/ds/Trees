@@ -1,0 +1,59 @@
+
+
+
+
+Types of Trees:
+Binary Tree: A tree in which each node has at most two children (left and right).
+Binary Search Tree (BST): A binary tree where the left child contains values less than the parent node,
+and the right child contains values greater than the parent node.
+Balanced Trees: Trees like AVL and Red-Black Trees maintain a balance, so the height is logarithmic.
+Heap: A special binary tree where the parent node is either greater than or less than the children
+(used in priority queues).
+Trie: A tree used for storing strings where each edge represents a character.
+N-ary Tree: A tree where a node can have at most N children.
+
+Binary Tree:
+===========
+   Types of Binary Trees:
+   Full Binary Tree: Every node has either 0 or 2 children.
+   Perfect Binary Tree: All internal nodes have exactly 2 children, and all leaf nodes are at the same level.
+   Complete Binary Tree: All levels are completely filled except possibly the last, which is filled from left to right.
+   Degenerate Binary Tree: Each parent node has only one child, making it resemble a linked list.
+   Balanced Binary Tree: A tree where the height of the left and right subtrees differ by at most 1.
+   Binary Tree Traversals:
+   Traversing a binary tree means visiting every node in the tree in a specific order. The most common traversal methods are:
+   In-order Traversal (Left, Root, Right): Visits the left subtree, then the root node, and finally the right subtree.
+   Pre-order Traversal (Root, Left, Right): Visits the root node, then the left subtree, and finally the right subtree.
+   Post-order Traversal (Left, Right, Root): Visits the left subtree, the right subtree, and then the root node.
+   Level-order Traversal (Breadth-First): Visits nodes level by level from top to bottom, left to right.
+
+Trie:
+======
+======
+A Trie (also known as a Prefix Tree) is a type of search tree used to store a dynamic set of strings where keys are usually strings. Unlike a binary search tree, a Trie does not store the key associated with a node. Instead, a node’s position in the Trie defines the key with which it is associated.
+
+Breadth First Search (BFS) is when the nodes on the same level are visited before going to the next level in the tree.
+  This means that the tree is explored in a more sideways direction.
+Depth First Search (DFS) is when the traversal moves down the tree all the way to the leaf nodes,
+  exploring the tree branch by branch in a downwards direction.
+There are three different types of DFS traversals:
+    pre-order
+    in-order
+    post-order
+
+Types of Balanced Trees:
+========================
+========================
+AVL Tree: A self-balancing binary search tree where the difference in heights of the left and right subtrees of any node is at most 1.
+Red-Black Tree: A self-balancing binary search tree where each node has an extra bit for denoting the color (red or black) to ensure the tree remains balanced.
+B-Tree: A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. B-trees are generalizations of binary search trees and are used in databases and file systems.
+
+
+Comparison with AVL Trees:
+Feature	         AVL Tree	Red-Black Tree
+Balancing	Strictly balanced	Loosely balanced
+Rotations	More frequent	Less frequent
+Height	Lower height than Red-Black Tree	Height is a bit higher than AVL
+Insertions/Deletions	More expensive due to frequent rotations	Cheaper due to fewer rotations
+Use Case	Good for read-heavy operations	Good for write-heavy operations
+In conclusion, Red-Black Trees offer a robust self-balancing solution for binary search trees, maintaining efficient performance for insertion, deletion, and search operations.

@@ -1,0 +1,4 @@
+Key Points:
+Concurrency mechanisms like synchronized, ReentrantLock, Semaphore, and notify/wait are used to ensure thread safety and avoid race conditions.
+System Design examples like the Elevator System and Rate Limiter demonstrate how to manage real-world systems with concurrency.
+These programs handle common concurrency patterns. Let me know if you need further explanations or adjustments!

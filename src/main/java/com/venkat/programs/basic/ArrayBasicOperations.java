@@ -44,12 +44,25 @@ public class ArrayBasicOperations {
 
     // 3) Left rotate the elements of an array
     public static void leftRotate(int[] array, int n) {
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <
+                n; i++) {
             int first = array[0];
             for (int j = 0; j < array.length - 1; j++) {
                 array[j] = array[j + 1];
             }
             array[array.length - 1] = first;
+        }
+        printArray(array);
+    }
+
+    // 13) Right rotate the elements of an array
+    public static void rightRotate(int[] array, int n) {
+        for (int i = 0; i < n; i++) {
+            int last = array[array.length - 1];
+            for (int j = array.length - 1; j > 0; j--) {
+                array[j] = array[j - 1];
+            }
+            array[0] = last;
         }
         printArray(array);
     }
@@ -140,17 +153,6 @@ public class ArrayBasicOperations {
         return sum;
     }
 
-    // 13) Right rotate the elements of an array
-    public static void rightRotate(int[] array, int n) {
-        for (int i = 0; i < n; i++) {
-            int last = array[array.length - 1];
-            for (int j = array.length - 1; j > 0; j--) {
-                array[j] = array[j - 1];
-            }
-            array[0] = last;
-        }
-        printArray(array);
-    }
 
     // 14) Sort the elements of an array in ascending order
     public static void sortAscending(int[] array) {

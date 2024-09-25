@@ -1,0 +1,24 @@
+Recursion is a programming technique where a function calls itself directly or indirectly in order to solve a problem.
+It’s typically used to solve problems that can be broken down into smaller, similar subproblems.
+ Recursive solutions often provide elegant, compact solutions to certain problems, such as tree traversals,
+  factorial computation, and Fibonacci sequences, among others.
+
+Key Concepts of Recursion:
+Base Case: This is the condition that stops the recursion. Without a base case,
+  the recursion would go on indefinitely, resulting in a stack overflow.
+Recursive Case: This is where the function continues to call itself to break down the problem into smaller pieces.
+Stack Memory: Each recursive function call is stored in the call stack. When the base case is reached,
+       the functions start returning in the reverse order they were called.
+
+returnType function(parameters) {
+    // Base case
+    if (condition) {
+        return result;
+    }
+    // Recursive case
+    else {
+        // Call the function recursively with modified parameters
+        return function(modified parameters);
+    }
+}
+
