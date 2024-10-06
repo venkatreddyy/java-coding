@@ -1,0 +1,142 @@
+1. Prefix Sum
+Concept: Precompute cumulative sums to optimize range queries and subarray problems.
+Time Complexity:
+Precompute Prefix Sum: O(n)
+Querying: O(1) per query.
+Use Cases:
+Range Sum Queries: O(1) per query after O(n) preprocessing.
+Subarray Sum Equals K: O(n) using hash maps to track prefix sums.
+Maximum Subarray Sum: O(n) with Kadane's algorithm.
+Matrix Sum Queries: O(n^2) preprocessing, O(1) for querying.
+Find Equilibrium Index: O(n) (finding where the prefix sum equals the suffix sum).
+2. Two Pointers
+Concept: Use two pointers to efficiently solve problems by scanning the array from two ends or managing ranges.
+Time Complexity:
+O(n) in most cases, with each element being processed once.
+Use Cases:
+Find Two Numbers That Add Up to Target: O(n) if array is sorted.
+Merge Two Sorted Arrays: O(n + m) where n and m are the sizes of the arrays.
+Remove Duplicates from Sorted Array: O(n).
+Container with Most Water: O(n).
+Triplet Sum Equals Target: O(n^2) (loop over the first element, and use two pointers for the rest).
+3. Sliding Window
+Concept: Maintain a window that slides over the array to solve subarray or substring problems efficiently.
+Time Complexity:
+Typically O(n) since each element is processed once.
+Use Cases:
+Maximum Sum Subarray of Size K: O(n).
+Longest Substring Without Repeating Characters: O(n).
+Find All Anagrams in a String: O(n).
+Minimum Size Subarray Sum: O(n).
+Maximum Number of Vowels in a Substring: O(n).
+4. Fast and Slow Pointers
+Concept: Use two pointers that move at different speeds to detect cycles or solve linked list problems.
+Time Complexity:
+O(n) where n is the size of the list or array.
+Use Cases:
+Detect Cycle in Linked List: O(n).
+Find Middle of Linked List: O(n).
+Cycle Detection in Array: O(n).
+Happy Number: O(log n) (where n is the number of digits).
+Palindrome Linked List: O(n).
+5. Monotonic Stack
+Concept: Use a stack to maintain a sequence of elements in increasing or decreasing order to solve range-based problems efficiently.
+Time Complexity:
+Typically O(n), where each element is pushed and popped once.
+Use Cases:
+Next Greater Element: O(n).
+Largest Rectangle in Histogram: O(n).
+Trapping Rain Water: O(n).
+Daily Temperatures: O(n).
+Previous Smaller Element: O(n).
+6. Top 'K' Elements
+Concept: Find the top K largest or smallest elements using heaps or quickselect.
+Time Complexity:
+Using a heap: O(n log K).
+Using quickselect: O(n) on average, O(n^2) in the worst case.
+Use Cases:
+Find K Largest Elements in an Array: O(n log K) with a heap.
+Kth Largest Element in an Array: O(n) average using quickselect.
+Top K Frequent Elements: O(n log K) with a heap.
+Sort Characters By Frequency: O(n log K).
+Find K Closest Points to Origin: O(n log K).
+7. Overlapping Intervals
+Concept: Handle problems where intervals overlap and need to be merged or checked for conflicts.
+Time Complexity:
+Sorting the intervals takes O(n log n), and merging is O(n).
+Use Cases:
+Merge Intervals: O(n log n) (due to sorting).
+Meeting Rooms: O(n log n).
+Insert Interval: O(n) (inserting in a sorted list).
+Non-overlapping Intervals: O(n log n).
+Interval Intersection: O(n + m) where n and m are the sizes of the two interval lists.
+8. Modified Binary Search
+Concept: Modify the standard binary search to solve more complex problems in logarithmic time.
+Time Complexity:
+Typically O(log n), depending on the problem.
+Use Cases:
+Search in Rotated Sorted Array: O(log n).
+Find First and Last Position of Element: O(log n).
+Find Peak Element: O(log n).
+Kth Smallest Element in a Sorted Matrix: O(log(max-min) * n) where n is the size of the matrix.
+Minimum in Rotated Sorted Array: O(log n).
+9. BFS (Breadth-First Search)
+Concept: Explore nodes level by level, often used for shortest path finding and connectivity checking.
+Time Complexity:
+O(V + E) where V is the number of vertices and E is the number of edges.
+Use Cases:
+Shortest Path in Unweighted Graph: O(V + E).
+Level Order Traversal of a Tree: O(n).
+Word Ladder: O(V + E).
+Minimum Depth of Binary Tree: O(n).
+Clone Graph: O(V + E).
+10. DFS (Depth-First Search)
+Concept: Explore nodes as deep as possible before backtracking, useful for exploring all possible paths.
+Time Complexity:
+O(V + E) where V is the number of vertices and E is the number of edges.
+Use Cases:
+Connected Components in Graph: O(V + E).
+Detect Cycle in Directed/Undirected Graph: O(V + E).
+All Paths From Source to Target: O(V + E).
+Topological Sorting: O(V + E).
+Solve Maze or Grid Problems: O(n) where n is the size of the grid.
+11. Dynamic Programming
+Concept: Solve problems by breaking them down into subproblems, storing intermediate results to avoid recomputation.
+Time Complexity:
+Varies based on the problem but typically O(n) or O(n^2).
+Use Cases:
+Longest Common Subsequence: O(m * n) where m and n are the lengths of the sequences.
+Knapsack Problem: O(n * W) where n is the number of items and W is the capacity.
+Edit Distance: O(m * n) where m and n are the lengths of the two strings.
+Coin Change Problem: O(amount * n) where n is the number of coins.
+Fibonacci Sequence: O(n) using memoization or tabulation.
+12. Backtracking
+Concept: Recursively try all possible solutions, backtracking when a solution violates constraints.
+Time Complexity:
+Exponential in many cases, typically O(k^n), where k is the branching factor and n is the depth of recursion.
+Use Cases:
+N-Queens Problem: O(n!).
+Sudoku Solver: O(9^n) where n is the number of blanks.
+Word Search: O(n * m * 4^L) where n and m are grid dimensions and L is the word length.
+Permutations of a List: O(n!).
+Subset Sum: O(2^n).
+13. Topological Sorting
+Concept: Linear ordering of vertices in a directed acyclic graph (DAG) where each directed edge points from an earlier vertex to a later vertex.
+Time Complexity:
+O(V + E) where V is the number of vertices and E is the number of edges.
+Use Cases:
+Course Scheduling: O(V + E).
+Project Task Scheduling: O(V + E).
+Dependency Resolution: O(V + E).
+Build System: O(V + E).
+Assembly Line Scheduling: O(V + E).
+14. Contribution Pattern
+Concept: Calculate the contribution of each element toward the final result rather than brute-forcing through all subsets or combinations.
+Time Complexity:
+Typically O(n) or O(n^2) depending on the problem.
+Use Cases:
+Sum of All Subarrays: O(n).
+XOR of All Subarrays: O(n).
+Count Inversions: O(n log n).
+Sum of Subset Products: O(n).
+Total Distance Between Points: O(n).
