@@ -24,23 +24,15 @@ Reverse the curr.next pointer to point to the prev node.
 Move prev and curr one step forward.
 After the loop ends, prev will be the new head of the reversed list.
  */
-class ListNode1 {
-    int value;
-    ListNode1 next;
 
-    ListNode1(int value) {
-        this.value = value;
-        this.next = null;
-    }
-}
 
 public class LinkedListReversal {
 
     // Function to reverse the linked list in place
-    public static ListNode1 reverseLinkedList(ListNode1 head) {
-        ListNode1 previousNode = null;  // Initialize prev as null
-        ListNode1 currentNode = head;   // Start with the head as the current node
-        ListNode1 nextNode;      // A pointer to store the next node temporarily
+    public static ListNode reverseLinkedList(ListNode head) {
+        ListNode previousNode = null;  // Initialize prev as null
+        ListNode currentNode = head;   // Start with the head as the current node
+        ListNode nextNode;      // A pointer to store the next node temporarily
 
         // Traverse through the list and reverse the pointers
         while (currentNode != null) {
@@ -56,18 +48,18 @@ public class LinkedListReversal {
 
     public static void main(String[] args) {
         // Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
-        ListNode1 head = new ListNode1(1);
-        head.next = new ListNode1(2);
-        head.next.next = new ListNode1(3);
-        head.next.next.next = new ListNode1(4);
-        head.next.next.next.next = new ListNode1(5);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
 
         // Print original list
         System.out.println("Original List:");
         printLinkedList(head);
 
         // Reverse the linked list
-        ListNode1 reversedHead = reverseLinkedList(head);
+        ListNode reversedHead = reverseLinkedList(head);
 
         // Print reversed list
         System.out.println("\nReversed List:");
@@ -75,10 +67,10 @@ public class LinkedListReversal {
     }
 
     // Helper function to print the linked list
-    public static void printLinkedList(ListNode1 head) {
-        ListNode1 currentNode = head;
+    public static void printLinkedList(ListNode head) {
+        ListNode currentNode = head;
         while (currentNode != null) {
-            System.out.print(currentNode.value + " ");
+            System.out.print(currentNode.val + " ");
             currentNode = currentNode.next;
         }
         System.out.println();

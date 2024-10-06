@@ -7,14 +7,14 @@ public class EqualMatrix
         boolean flag = true;
 
         //Initialize matrix a
-        int a[][] = {
+        int[][] a = {
                 {1, 2, 3},
                 {8, 4, 6},
                 {4, 5, 7}
         };
 
         //Initialize matrix b
-        int b[][] = {
+        int[][] b = {
                 {1, 2, 3},
                 {8, 4, 6},
                 {4, 5, 7}

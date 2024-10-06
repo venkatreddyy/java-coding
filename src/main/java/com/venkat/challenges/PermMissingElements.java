@@ -1,4 +1,4 @@
-package com.venkat.codility;
+package com.venkat.challenges;
 
 public class PermMissingElements {
 

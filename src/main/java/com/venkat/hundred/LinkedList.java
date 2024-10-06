@@ -1,7 +1,5 @@
 package com.venkat.hundred;
 
-import java.util.HashMap;
-
 class LinkedList {
     Node head; // Head node of the linked list
 
