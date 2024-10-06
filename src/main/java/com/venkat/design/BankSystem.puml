@@ -1,0 +1,82 @@
+@startuml
+
+' Abstract class Person (Abstraction and Encapsulation)
+abstract class Person {
+    - name: String
+    - address: String
+    + getName(): String
+    + getAddress(): String
+    + setName(name: String): void
+    + setAddress(address: String): void
+    + getPersonDetails(): String
+}
+
+' Customer class (Inherits from Person, Encapsulation, Polymorphism, Association with Account and Loan)
+class Customer {
+    - customerId: int
+    - account: Account
+    - loans: List<Loan>
+    + getCustomerId(): int
+    + setAccount(account: Account): void
+    + getAccount(): Account
+    + takeLoan(loan: Loan): void
+    + getLoans(): List<Loan>
+    + getPersonDetails(): String
+}
+
+' Employee class (Inherits from Person, Encapsulation, Polymorphism, Manages Accounts)
+class Employee {
+    - employeeId: int
+    + getEmployeeId(): int
+    + manageAccount(account: Account): void
+    + getPersonDetails(): String
+}
+
+' Account class (Encapsulation, Association with Customer)
+class Account {
+    - accountNumber: String
+    - balance: double
+    + deposit(amount: double): void
+    + withdraw(amount: double): void
+    + getBalance(): double
+    + getAccountNumber(): String
+}
+
+' Loan class (Aggregation with Customer, Encapsulation)
+class Loan {
+    - loanId: int
+    - amount: double
+    + getLoanDetails(): String
+}
+
+' Branch class (Composition with Account and Employee)
+class Branch {
+    - branchId: int
+    - branchName: String
+    + addAccount(account: Account): void
+    + addEmployee(employee: Employee): void
+    + getBranchName(): String
+}
+
+' Bank class (Composition with Branch, Encapsulation)
+class Bank {
+    - name: String
+    + addBranch(branch: Branch): void
+    + getBranches(): List<Branch>
+}
+
+' Inheritance (Generalization/Polymorphism)
+Person <|-- Customer
+Person <|-- Employee
+
+' Association Relationships with Multiplicity
+Customer --> "1" Account : "has"
+Customer --> "0..*" Loan : "takes"
+Employee --> "1..*" Account : "manages"
+
+' Aggregation and Composition with Multiplicity
+Branch *-- "1..*" Account : "contains"
+Branch *-- "1..*" Employee : "employs"
+Bank *-- "1..*" Branch : "owns"
+
+@enduml

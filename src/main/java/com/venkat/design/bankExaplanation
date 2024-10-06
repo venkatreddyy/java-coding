@@ -1,0 +1,32 @@
+Explanation:
+OOP Concepts:
+Encapsulation:
+
+All fields (like name, address, balance, etc.) are private (-) and can only be accessed via public getter/setter methods.
+Abstraction:
+
+Person is an abstract class that defines general properties (name, address, etc.) and methods (getPersonDetails()) shared by both Customer and Employee.
+Inheritance (Generalization):
+
+Customer and Employee inherit from the Person class. This shows how common behavior and attributes are shared between different types of people in the banking system.
+Polymorphism:
+
+The method getPersonDetails() is overridden in both Customer and Employee classes. This shows polymorphism where the same method can have different implementations based on the object type.
+Relationships and Multiplicity:
+Association:
+
+Customer has exactly one account (Customer --> "1" Account : "has").
+Customer can take zero or more loans (Customer --> "0..*" Loan : "takes").
+Employee manages one or more accounts (Employee --> "1..*" Account : "manages").
+Aggregation:
+
+Customer can have multiple loans (0..* multiplicity). Loans can exist independently of the customer (if the customer is deleted, the loan record may still remain).
+Composition:
+
+Branch contains multiple accounts and employees (1..* multiplicity), meaning the branch cannot exist without these components.
+Bank contains one or more branches (1..* multiplicity). If the bank is dissolved, its branches cease to exist.
+OOP Concept Demonstration:
+Encapsulation is achieved by marking the fields in all classes as private and providing public getter/setter methods.
+Abstraction is applied through the Person abstract class, which defines common properties and behavior for Customer and Employee.
+Inheritance is shown where Customer and Employee inherit from Person.
+Polymorphism is demonstrated by overriding the getPersonDetails() method in both Customer and Employee classes, where they have different implementations.

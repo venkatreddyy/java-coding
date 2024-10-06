@@ -12,6 +12,17 @@ Collect: Gathers the result into a collection like List, Set, or Map.
 FlatMap: Used to flatten nested structures, like converting a 2D list into a flat list.
 GroupingBy: Groups elements based on a classifier, such as grouping strings by their length.
 PartitioningBy: Splits elements into two groups (like even vs. odd numbers).
+
+Filter Even Numbers: [2, 4, 6, 8, 10]
+Square of Numbers: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+Sum of Numbers: 55
+Even Numbers Collected: [2, 4, 6, 8, 10]
+Unique Strings Collected: [banana, date, apple, cherry]
+String Length Map: {date=4, banana=6, cherry=6, apple=5}
+FlatMap Example: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+Grouped by Length: {4=[date], 5=[apple, apple], 6=[banana, cherry]}
+Partitioned by Even: {false=[1, 3, 5, 7, 9], true=[2, 4, 6, 8, 10]}
+
  */
 public class StreamOperations {
 

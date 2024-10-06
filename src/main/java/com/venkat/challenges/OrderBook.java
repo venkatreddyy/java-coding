@@ -1,53 +1,67 @@
-package com.venkat;
+package com.venkat.challenges;
 
-import java.util.*;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class Order {
     String orderId;
     double price;
     int qty;
 
-    // Constructor for the Order class
+
     public Order(String orderId, double price, int qty) {
         this.orderId = orderId;
         this.price = price;
+        this.qty = qty;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
         this.qty = qty;
     }
 }
 
 public class OrderBook {
     // Use an ArrayList to store the orders
-    private List<Order> ordersList = new ArrayList<>();
+    private final List<Order> ordersList = new ArrayList<>();
 
-    // Insert order
+
     public void insertOrder(String orderId, double price, int qty) {
         Order order = new Order(orderId, price, qty);
         ordersList.add(order); // Add the new order to the list
     }
 
-    // Remove order
+
     public void removeOrder(String orderId) {
-        // Use Iterator to safely remove orders while iterating
-        Iterator<Order> iterator = ordersList.iterator();
-        while (iterator.hasNext()) {
-            Order order = iterator.next();
-            if (order.orderId.equals(orderId)) {
-                iterator.remove(); // Remove the matching order by orderId
-                break;
-            }
-        }
+        // Use removeIf to safely remove orders based on a condition
+        ordersList.removeIf(order -> order.getOrderId().equals(orderId));
     }
 
-    // Retrieve all orders sorted by price (highest price first)
     public List<Order> retrieveAllOrdersByPriority() {
         // Sort orders based on price (highest price first)
         ordersList.sort((o1, o2) -> Double.compare(o2.price, o1.price));
         return ordersList;
     }
 
-    // Utility method to print orders
     public void printOrders() {
         List<Order> orders = retrieveAllOrdersByPriority();
         for (Order order : orders) {
