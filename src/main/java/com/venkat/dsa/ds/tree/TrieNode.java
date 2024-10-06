@@ -18,108 +18,94 @@ Search: Searching for a word in the Trie is done by following the path through t
 Delete: To remove a word, we reverse the insertion process and prune any unnecessary nodes.
 
  */
+
+
 class TrieNode {
-    // Array to store references to child nodes for each character ('a' to 'z')
-    TrieNode[] children = new TrieNode[26];
+    TrieNode[] children; // Array to hold references to child nodes
+    boolean isEndOfWord; // Flag to check if the node marks the end of a word
 
-    // Flag to indicate whether this node marks the end of a valid word
-    boolean isEndOfWord;
-
-    // Constructor to initialize the node
     public TrieNode() {
-        isEndOfWord = false; // Initially, no word ends at this node
-        for (int i = 0; i < 26; i++) {
-            children[i] = null; // Initialize all child pointers to null (no children yet)
-        }
+        this.children = new TrieNode[26]; // Since we are considering lowercase English letters only
+        this.isEndOfWord = false;
     }
 }
 
-class Trie {
-    private TrieNode root; // The root node of the Trie
+ class Trie {
 
-    // Constructor to initialize the Trie
+    private final TrieNode root;
+
     public Trie() {
-        root = new TrieNode(); // Start with an empty root node
+        root = new TrieNode(); // Root is an empty node
     }
 
-    // Method to insert a word into the Trie
+    // 1. Insert a word into the Trie
+    // Time Complexity: O(n), where n is the length of the word
+    // Space Complexity: O(n), for creating new nodes if necessary
     public void insert(String word) {
-        TrieNode node = root; // Start at the root node
-        // Iterate over each character in the word
+        TrieNode node = root;
         for (int i = 0; i < word.length(); i++) {
-            int index = word.charAt(i) - 'a'; // Convert the character into an index (0 to 25) based on 'a'
-
-            // If the corresponding child node does not exist, create a new node
+            char currentChar = word.charAt(i);
+            int index = currentChar - 'a'; // Calculate the index based on 'a' (ASCII offset)
             if (node.children[index] == null) {
-                node.children[index] = new TrieNode();
+                node.children[index] = new TrieNode(); // Create a new node if not already present
             }
-
-            // Move to the child node representing the current character
             node = node.children[index];
         }
-        // After processing all characters, mark the last node as the end of a word
-        node.isEndOfWord = true;
+        node.isEndOfWord = true; // Mark the end of the word
     }
 
-    // Method to search for a word in the Trie
+    // 2. Search for a word in the Trie
+    // Time Complexity: O(n), where n is the length of the word
+    // Space Complexity: O(1), no extra space used
     public boolean search(String word) {
-        TrieNode node = root; // Start at the root node
-        // Iterate over each character in the word
+        TrieNode node = root;
         for (int i = 0; i < word.length(); i++) {
-            int index = word.charAt(i) - 'a'; // Convert the character into an index (0 to 25)
-
-            // If the corresponding child node does not exist, the word is not in the Trie
-            if (node.children[index] == null) {
-                return false;
-            }
-
-            // Move to the child node representing the current character
+            char currentChar = word.charAt(i);
+            int index = currentChar - 'a';
+            if (node.children[index] == null) return false; // If character is not found, return false
             node = node.children[index];
         }
-        // Return true if the last node marks the end of a word
-        return node.isEndOfWord;
+        return node.isEndOfWord; // Return true if the word exists and ends here
     }
 
-    // Method to check if any words in the Trie start with a given prefix
+    // 3. Check if there is any word in the Trie that starts with the given prefix
+    // Time Complexity: O(n), where n is the length of the prefix
+    // Space Complexity: O(1), no extra space used
     public boolean startsWith(String prefix) {
-        TrieNode node = root; // Start at the root node
-        // Iterate over each character in the prefix
+        TrieNode node = root;
         for (int i = 0; i < prefix.length(); i++) {
-            int index = prefix.charAt(i) - 'a'; // Convert the character into an index (0 to 25)
-
-            // If the corresponding child node does not exist, no words with this prefix exist
-            if (node.children[index] == null) {
-                return false;
-            }
-
-            // Move to the child node representing the current character
+            char currentChar = prefix.charAt(i);
+            int index = currentChar - 'a';
+            if (node.children[index] == null) return false; // If the prefix is not found, return false
             node = node.children[index];
         }
-        // If we have successfully traversed all characters, the prefix exists in the Trie
-        return true;
+        return true; // Return true if the prefix exists
     }
 
-    // Main method for testing the Trie functionality
+    // Main method to test the Trie implementation
     public static void main(String[] args) {
-        Trie trie = new Trie(); // Create a new Trie
+        Trie trie = new Trie();
 
         // Insert words into the Trie
         trie.insert("apple");
         trie.insert("app");
         trie.insert("bat");
         trie.insert("ball");
+        trie.insert("batman");
 
-        // Search for words
-        System.out.println(trie.search("apple"));  // Output: true (word exists)
-        System.out.println(trie.search("app"));    // Output: true (word exists)
-        System.out.println(trie.search("bat"));    // Output: true (word exists)
-        System.out.println(trie.search("ball"));   // Output: true (word exists)
-        System.out.println(trie.search("baller")); // Output: false (word does not exist)
-        System.out.println(trie.search("cat"));    // Output: false (word does not exist)
+        // Test search
+        System.out.println("Search 'apple': " + trie.search("apple")); // Expected: true
+        System.out.println("Search 'app': " + trie.search("app")); // Expected: true
+        System.out.println("Search 'bat': " + trie.search("bat")); // Expected: true
+        System.out.println("Search 'ball': " + trie.search("ball")); // Expected: true
+        System.out.println("Search 'batman': " + trie.search("batman")); // Expected: true
+        System.out.println("Search 'batwoman': " + trie.search("batwoman")); // Expected: false
 
-        // Check for prefixes
-        System.out.println(trie.startsWith("app")); // Output: true (prefix exists)
-        System.out.println(trie.startsWith("ba"));  // Output: true (prefix exists)
-        System.out.println(trie.startsWith("ca"));  // Output: false (prefix does not exist)
+        // Test startsWith (prefix search)
+        System.out.println("Starts with 'app': " + trie.startsWith("app")); // Expected: true
+        System.out.println("Starts with 'bat': " + trie.startsWith("bat")); // Expected: true
+        System.out.println("Starts with 'batman': " + trie.startsWith("batman")); // Expected: true
+        System.out.println("Starts with 'xyz': " + trie.startsWith("xyz")); // Expected: false
     }
 }
+
