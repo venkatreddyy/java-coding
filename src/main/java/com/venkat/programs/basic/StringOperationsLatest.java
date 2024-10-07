@@ -10,6 +10,34 @@ printEvenPosition and printOddPosition: Print elements at even or odd positions.
 findLargestElement and findSmallestElement: Use Arrays.stream() to find the largest and smallest elements.
 sumOfElements: Sum all elements using Arrays.stream().sum().
 sortArray: Sort arrays in ascending or descending order using Arrays.sort().
+
+Total Characters: 11
+Total Characters Without Length: 11
+Punctuation Characters: 2
+Vowels: 3
+Consonants: 7
+Are Anagrams: false
+ab
+cd
+ef
+gh
+
+Most repeated word: easy
+Word Count: 3
+H
+e
+l
+l
+o
+Swapped Strings: world, hello
+Smallest Palindrome: noon
+Largest Palindrome: racecar
+Reversed Word by Word: World Hello
+Reversed Without Function: dlroW olleH
+
+Process finished with exit code 0
+
+
  */
 public class StringOperationsLatest {
 
@@ -55,8 +83,28 @@ public class StringOperationsLatest {
         return str1.length() == str2.length() &&
                 str1.chars().sorted().toArray().equals(str2.chars().sorted().toArray());
     }
+/*
+        Longest Repeating Sequence: abc
+        Without Spaces: Hello
+        Swap Case: hELLO wORLD
+        Replace Spaces with '_': Hello_World
+        Is Palindrome: true
+        Is Rotation: true
+        Max occurring character: l
+        Min occurring character:
+        Reversed String: dlroW olleH
+        r
+        g
+        m
+        test
+        this
+        is
+        {a=2, r=2, c=2, t=1, e=1, h=1}
+        Smallest word: a
+        Largest word: language
 
-    // 6) Divide a string into 'N' equal parts
+ */
+    // 6) Divide a string into 'N' equal parts abcdefgh
     public static void divideStringIntoNParts(String str, int n) {
         var partSize = str.length() / n;
         for (var i = 0; i < str.length(); i += partSize) {
@@ -64,7 +112,13 @@ public class StringOperationsLatest {
         }
     }
 
-    // 7) Find all subsets of a string
+    // 7) Find all subsets of a string abc
+    // a
+    //ab
+    //abc
+    //b
+    //bc
+    //c
     public static void findAllSubsets(String str) {
         for (var i = 0; i < str.length(); i++) {
             for (var j = i + 1; j <= str.length(); j++) {
@@ -73,44 +127,78 @@ public class StringOperationsLatest {
         }
     }
 
-    // 8) Find the longest repeating sequence in a string
+    // 8) Find the longest repeating sequence in a string abcabc
     public static String findLongestRepeatingSequence(String str) {
+        // Initialize an empty string to hold the longest repeating sequence found so far
         var longest = "";
+
+        // Outer loop to go through each character of the string starting from index 'i'
         for (var i = 0; i < str.length(); i++) {
+            // Inner loop to create substrings starting from index 'i' and ending at index 'j'
             for (var j = i + 1; j < str.length(); j++) {
+                // Extract the substring from index 'i' to 'j'
                 var subseq = str.substring(i, j);
+
+                // Check if the substring subseq appears again in the string after index 'j'
+                // If it does, and the length of this substring is greater than the longest found so far
                 if (str.indexOf(subseq, j) != -1 && subseq.length() > longest.length()) {
+                    // Update the longest repeating sequence found
                     longest = subseq;
                 }
             }
         }
+
+        // Return the longest repeating sequence found
         return longest;
     }
 
+/*
+ABC
+        ACB
+        BAC
+        BCA
+        CBA
+        CAB
+ */
     // 9) Find all permutations of a string
     public static void findAllPermutations(String str) {
+        // Start the permutation process by calling the recursive function `permute`.
+        // We start with l = 0 (left index) and r = str.length() - 1 (right index).
         permute(str, 0, str.length() - 1);
     }
 
     private static void permute(String str, int l, int r) {
+        // Base case: if left index (l) is equal to right index (r), we have a valid permutation.
+        // Print the current permutation of the string.
         if (l == r) {
             System.out.println(str);
         } else {
+            // Loop over the characters in the string, swapping each character in the current index `i` with the one at `l`.
             for (var i = l; i <= r; i++) {
+                // Swap the character at index `l` with the character at index `i`
                 str = swap(str, l, i);
+
+                // Recursively call `permute` for the remaining portion of the string (from l+1 to r).
                 permute(str, l + 1, r);
+
+                // Backtrack: swap the characters back to their original position
+                // to ensure we can generate new permutations.
                 str = swap(str, l, i);
             }
         }
     }
 
-    private static String swap(String a, int i, int j) {
-        var charArray = a.toCharArray();
-        var temp = charArray[i];
+    // Helper function to swap two characters in a string.
+// Since strings in Java are immutable, we first convert it to a char array.
+    private static String swap(String str, int i, int j) {
+        char[] charArray = str.toCharArray();  // Convert the string to a char array
+        char temp = charArray[i];              // Swap the characters at index i and j
         charArray[i] = charArray[j];
         charArray[j] = temp;
-        return String.valueOf(charArray);
+        return String.valueOf(charArray);      // Convert the char array back to a string
     }
+
+
 
     // 10) Remove all white spaces from a string
     public static String removeWhiteSpaces(String str) {
@@ -223,15 +311,28 @@ public class StringOperationsLatest {
 
     // 25) Print smallest and biggest possible palindrome word in a given string
     public static void findSmallestAndBiggestPalindromeWord(String str) {
-        var words = str.split("\\s+");
-        var smallestPalindrome = Arrays.stream(words).filter(StringOperationsLatest::isPalindrome)
-                .min(Comparator.comparingInt(String::length)).orElse("");
-        var largestPalindrome = Arrays.stream(words).filter(StringOperationsLatest::isPalindrome)
-                .max(Comparator.comparingInt(String::length)).orElse("");
+        // Split the input string `str` into an array of words using spaces (or multiple spaces) as a delimiter
+        var words = str.split("\\s+"); // "\\s+" matches one or more whitespace characters
 
+        // Find the smallest palindrome from the array of words
+        var smallestPalindrome = Arrays.stream(words) // Convert the array of words into a stream for functional-style processing
+                .filter(StringOperationsLatest::isPalindrome) // Filter out the words that are palindromes using the helper function `isPalindrome`
+                .min(Comparator.comparingInt(String::length)) // Find the minimum word based on its length using `min()` and `Comparator.comparingInt()`
+                .orElse(""); // If no palindrome is found, return an empty string by using `orElse("")`
+
+        // Find the largest palindrome from the array of words
+        var largestPalindrome = Arrays.stream(words) // Convert the array of words into a stream again for the next operation
+                .filter(StringOperationsLatest::isPalindrome) // Filter out the words that are palindromes
+                .max(Comparator.comparingInt(String::length)) // Find the maximum word based on its length using `max()` and `Comparator.comparingInt()`
+                .orElse(""); // If no palindrome is found, return an empty string
+
+        // Print the smallest palindrome word
         System.out.println("Smallest Palindrome: " + smallestPalindrome);
+
+        // Print the largest palindrome word
         System.out.println("Largest Palindrome: " + largestPalindrome);
     }
+
 
     // 26) Reverse string word by word
     public static String reverseStringWordByWord(String str) {
