@@ -23,14 +23,17 @@ public class BinaryTreeOperations {
     // 2) Construct BST and Perform Deletion and In-order Traversal
     public Node insertBST(Node node, int data) {
         if (node == null) return new Node(data);
-        if (data < node.data) node.left = insertBST(node.left, data);
-        else node.right = insertBST(node.right, data);
+        if (data < node.data)
+            node.left = insertBST(node.left, data);
+        else
+            node.right = insertBST(node.right, data);
         return node;
     }
 
     public Node deleteNode(Node root, int key) {
         if (root == null) return null;
-        if (key < root.data) root.left = deleteNode(root.left, key);
+        if (key < root.data)
+            root.left = deleteNode(root.left, key);
         else if (key > root.data) root.right = deleteNode(root.right, key);
         else {
             if (root.left == null) return root.right;

@@ -1,0 +1,18 @@
+2. Design Patterns in Java:
+Design patterns are well-established solutions to common design problems in software development. They make the system easier to understand, maintain, and scale.
+
+Creational Patterns: Deal with object creation mechanisms.
+
+Singleton: Ensures a class has only one instance globally.
+Factory: Creates objects without specifying the exact class.
+Builder: Simplifies the creation of complex objects.
+Structural Patterns: Focus on class and object composition.
+
+Adapter: Allows incompatible interfaces to work together.
+Decorator: Adds behavior to objects dynamically.
+Proxy: Provides a placeholder or surrogate for another object.
+Behavioral Patterns: Concerned with communication between objects.
+
+Observer: Notifies dependent objects of state changes.
+Strategy: Allows selecting an algorithm at runtime.
+Command: Encapsulates requests as objects, allowing for parameterization and queuing.

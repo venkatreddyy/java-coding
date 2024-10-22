@@ -1,4 +1,4 @@
-package com.venkat.challenges;
+package com.venkat.hundred.concurrency;
 
 // Main class to demonstrate JVM operations
 public class JVMExample {

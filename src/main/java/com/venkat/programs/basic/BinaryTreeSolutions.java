@@ -38,7 +38,8 @@ public class BinaryTreeSolutions {
 
     // Insert a node in the BST
     public static BinaryTreeNode insertBST(BinaryTreeNode root, int key) {
-        if (root == null) return new BinaryTreeNode(key); // If the root is null, create a new node
+        if (root == null)
+            return new BinaryTreeNode(key); // If the root is null, create a new node
 
         if (key < root.data) // If key is less, insert in the left subtree
             root.left = insertBST(root.left, key);
@@ -61,8 +62,11 @@ public class BinaryTreeSolutions {
         if (root == null) return null; // If the node is null, return null
 
         // Traverse to the correct node
-        if (key < root.data) root.left = deleteBST(root.left, key); // Key is in the left subtree
-        else if (key > root.data) root.right = deleteBST(root.right, key); // Key is in the right subtree
+        if (key < root.data)
+            root.left = deleteBST(root.left, key); // Key is in the left subtree
+        else if
+        (key > root.data)
+            root.right = deleteBST(root.right, key); // Key is in the right subtree
         else {
             // Node to be deleted has one or no child
             if (root.left == null) return root.right;

@@ -11,7 +11,7 @@ public class LinkedListReverse {
     public static Node reverse(Node head) {
         Node prev = null;      // 'prev' will eventually point to the new head (reversed list)
         Node current = head;   // 'current' is used to traverse the list
-        Node next = null;      // 'next' will temporarily store the next node
+        Node next;      // 'next' will temporarily store the next node
 
         // Loop to reverse the linked list
         while (current != null) {
