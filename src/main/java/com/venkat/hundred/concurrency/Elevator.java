@@ -70,6 +70,15 @@ class Elevator {
         new Thread(() -> elevator.requestFloor(3)).start();
         new Thread(() -> elevator.requestFloor(5)).start();
         new Thread(() -> elevator.requestFloor(1)).start();
+
+        new Thread(() -> {
+            try {
+                elevator.run();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }).start();
     }
+
 }
 

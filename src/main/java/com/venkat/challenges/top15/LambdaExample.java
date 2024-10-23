@@ -10,6 +10,9 @@ public class LambdaExample {
         // Lambda expression to iterate over the list
         names.forEach(name -> System.out.println(name));
 
+        System.out.println("using method reference");
+        names.forEach(System.out::println);
+
         // Output:
         // John
         // Jane
