@@ -27,7 +27,6 @@ public class BinarySearch {
         // If the target is not found, return -1
         return -1;
     }
-
     // Main method to test the binarySearch function
     public static void main(String[] args) {
         // Define a sorted array

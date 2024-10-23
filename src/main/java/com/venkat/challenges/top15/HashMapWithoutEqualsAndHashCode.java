@@ -32,7 +32,9 @@ Default equals(): The default equals() method compares object references. Since 
 Because of these default behaviors, the HashMap cannot find the correct key (emp1Duplicate), and it returns null instead of "Developer".
 
 Correct Approach:
-To resolve this issue, you need to override the equals() and hashCode() methods in the Employee class. This will ensure that two Employee objects with the same id and name are considered equal and have the same hash code, allowing the HashMap to function as expected.
+To resolve this issue, you need to override the equals() and hashCode() methods in the Employee class.
+This will ensure that two Employee objects with the same id and name are considered equal and have the same hash code,
+allowing the HashMap to function as expected.
 
 Would you like me to provide the corrected version of this example with the equals() and hashCode() methods overridden?
  */
