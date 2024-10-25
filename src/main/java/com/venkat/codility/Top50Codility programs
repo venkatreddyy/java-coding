@@ -1,0 +1,512 @@
+1. Find the Missing Integer
+Problem Breakdown:
+
+We need to find the smallest positive integer that is missing from the given array.
+The input array can contain both negative and positive integers, but we only care about positive integers for this task.
+Algorithm:
+
+Filter out non-positive numbers (i.e., numbers <= 0).
+Store all positive integers in a set for fast lookup.
+Iterate over the positive integers starting from 1.
+The first integer that is missing from the set is the answer.
+Solution: Use a HashSet to store all positive integers. Then iterate from 1 upwards to find the first missing integer.
+
+2. Cyclic Rotation
+Problem Breakdown:
+
+Rotate an array A of N integers K times.
+After K rotations, elements from the end of the array shift to the beginning.
+Algorithm:
+Use modulo operation to handle cases where K is larger than N.
+Create a new array to store the rotated version.
+For each index i, move the element from the old array to its new position (i + K) % N.
+Solution: Use array manipulation and modulo arithmetic to handle rotations efficiently.
+
+3. Odd Occurrences in Array
+Problem Breakdown:
+
+We are given an array where each element occurs an even number of times except for one element that occurs an odd number of times.
+Algorithm:
+
+XOR all elements together. XOR of two same numbers cancels out, so the result will be the number that appears an odd number of times.
+Solution: Leverage the XOR operation to find the element that occurs an odd number of times.
+
+4. Max Counters
+Problem Breakdown:
+
+There are N counters, and we perform a sequence of operations on them, either increasing a specific counter or setting all counters to the maximum value.
+Algorithm:
+
+Maintain a variable for the maxCounter and currentMax.
+If the operation is to increase a counter, check if it should be adjusted based on maxCounter.
+If the operation is to set all counters to the maximum, set maxCounter accordingly.
+Solution: Use an array to track counter values and keep track of the maximum value efficiently with lazy propagation.
+
+5. Tape Equilibrium
+Problem Breakdown:
+
+We need to split an array A into two parts and find the minimal difference between the sums of the two parts.
+Algorithm:
+
+Compute the total sum of the array.
+Iterate through the array and update the sum of the left partition.
+Calculate the sum of the right partition and find the difference.
+Solution: Use a prefix sum approach to calculate the difference between the two parts efficiently.
+
+6. PermCheck
+Problem Breakdown:
+
+Check if a given array is a permutation of integers from 1 to N.
+Algorithm:
+
+Create a boolean array to mark the presence of each number.
+Iterate through the input array and mark the numbers in the boolean array.
+If any number is missing or appears twice, return false.
+Solution: Use a boolean array to check if all numbers between 1 and N are present exactly once.
+
+7. Frog Jump
+Problem Breakdown:
+
+A frog starts at position X and wants to reach position Y. Each jump moves it by D units. Find the minimum number of jumps required.
+Algorithm:
+
+Calculate the difference between Y and X.
+Divide this difference by D to find how many jumps are needed.
+If there is a remainder, add one more jump.
+Solution: Use simple arithmetic to compute the number of jumps needed.
+
+8. Count Div
+Problem Breakdown:
+
+Count the number of integers divisible by K in a given range [A, B].
+Algorithm:
+
+Count how many numbers are divisible by K up to B.
+Subtract the count of numbers divisible by K up to A - 1.
+Add an adjustment if A is divisible by K.
+Solution: Use a mathematical approach to directly calculate how many numbers are divisible by K in the range.
+
+9. Missing Element
+Problem Breakdown:
+
+We are given an array with N - 1 elements, all distinct, and one element missing. Find the missing element.
+Algorithm:
+
+Calculate the sum of the first N natural numbers.
+Subtract the sum of the given array from this value to find the missing element.
+Solution: Use the formula for the sum of natural numbers and subtract the sum of the array to find the missing element.
+
+10. Max Profit
+Problem Breakdown:
+
+Given an array representing stock prices on different days, find the maximum profit you can achieve by buying and selling on different days.
+Algorithm:
+
+Track the minimum price encountered so far.
+For each price, calculate the potential profit if sold on that day.
+Keep track of the maximum profit.
+Solution: Use a greedy approach to track the minimum price and compute the maximum profit on each day.
+
+11. Min Avg Two Slice
+Problem Breakdown:
+
+We are given an array and need to find the starting position of the slice whose average is the smallest.
+Algorithm:
+
+For every two consecutive elements, calculate the average.
+For every three consecutive elements, calculate the average.
+Track the smallest average and its position.
+Solution: Use a sliding window to compute averages for 2-element and 3-element slices and find the minimum.
+
+12. EquiLeader
+Problem Breakdown:
+
+Find the index where the number of leaders (most frequent elements) is equal in both parts of the array after splitting at that index.
+Algorithm:
+
+Use the candidate selection algorithm to find the leader of the array.
+Count occurrences of the leader in both parts of the array after each index.
+Solution: Use a two-pass approach: first to find the leader, second to count how many times the leader appears in both parts.
+
+13. Passing Cars
+Problem Breakdown:
+
+Count the number of passing car pairs where a car traveling east (represented by 0) passes a car traveling west (represented by 1).
+Algorithm:
+
+Count the number of cars traveling east as you traverse the array.
+For every car traveling west, add the current count of east-bound cars to the total.
+Solution: Use a linear scan to count the number of passing car pairs by keeping track of east-bound cars.
+
+14. Genomic Range Query
+Problem Breakdown:
+
+Given a DNA sequence, find the minimal nucleotide in a range of the sequence between indices P and Q.
+Algorithm:
+
+Preprocess the DNA sequence into prefix sums for each nucleotide (A, C, G, T).
+For each query, calculate the difference in counts for each nucleotide in the range.
+Solution: Use prefix sums for each nucleotide to handle range queries efficiently.
+
+15. Distinct
+Problem Breakdown:
+
+Find the number of distinct values in an array.
+Algorithm:
+
+Insert each value into a set (which only keeps unique values).
+The size of the set will be the number of distinct values.
+Solution: Use a HashSet to store the distinct elements and return its size.
+
+16. Max Product of Three
+Problem Breakdown:
+
+Given an array of integers, find the maximum product of any triplet.
+Algorithm:
+
+Sort the array.
+The maximum product could be the product of the three largest numbers or the product of the two smallest (negative) numbers and the largest number.
+Solution: Sort the array and check both possible triplet combinations to find the maximum product.
+
+17. Triangle
+Problem Breakdown:
+
+Given an array, determine whether a triangle can be formed using three elements as the lengths of the sides.
+Algorithm:
+
+Sort the array.
+For each triplet, check if the sum of two sides is greater than the third side (i.e., triangle inequality holds).
+Solution: Sort the array and check the triangle inequality for every triplet.
+
+18. Number of Disc Intersections
+Problem Breakdown:
+
+Given an array of disc radii, count the number of intersecting discs.
+Algorithm:
+
+Calculate the left and right boundaries of each disc.
+Sort the left and right boundaries.
+Use a two-pointer technique to count intersections by comparing these boundaries.
+Solution: Sort the boundaries and use a sliding window approach to count the number of intersections efficiently.
+
+19. Brackets
+Problem Breakdown:
+
+Given a string of parentheses, check if it is properly nested.
+Algorithm:
+
+Use a stack to push opening brackets.
+For every closing bracket, check if the stack contains a matching opening bracket.
+If the stack is empty at the end, the string is properly nested.
+Solution: Use a stack to match opening and closing brackets and check if the string is properly nested.
+
+20. Nesting
+Problem Breakdown:
+
+Check if a string of parentheses is properly nested (this is a simplified version of the Brackets problem, only involving round brackets).
+Algorithm:
+
+Use a counter to track the number of open brackets.
+For each closing bracket, decrease the counter. If the counter becomes negative, return false.
+At the end, if the counter is zero, the string is properly nested.
+Solution: Use a counter instead of a stack to check if the string is properly nested.
+
+21. StoneWall
+Problem Breakdown:
+
+We are building a stone wall with varying heights and want to minimize the number of blocks used.
+Algorithm:
+
+Use a stack to track the heights of the current blocks.
+When encountering a new height, either add a new block or pop from the stack if the current height can be part of the previous block.
+Solution: Use a stack to simulate the building of the wall and minimize the number of blocks.
+
+22. Fish
+Problem Breakdown:
+
+There are fish moving in a river, some upstream and some downstream. Fish moving upstream can eat fish moving downstream. Find out how many fish will remain.
+Algorithm:
+
+Use a stack to keep track of fish moving downstream.
+When a fish moving upstream is encountered, compare it with fish from the stack (downstream fish) until one survives or all downstream fish are eaten.
+Solution: Use a stack to track downstream fish and simulate the encounter of upstream fish.
+
+23. Dominator
+Problem Breakdown:
+
+Find the index of the dominator (an element that occurs in more than half the array).
+Algorithm:
+
+Use a candidate selection algorithm to find a potential dominator.
+Verify if the candidate appears more than half the time in the array.
+Solution: Use a two-pass algorithm: first to find the candidate, then to verify if it is indeed the dominator.
+
+24. MaxSliceSum
+Problem Breakdown:
+
+Find the maximum sum of a contiguous subarray.
+Algorithm:
+
+Use Kadane’s algorithm: maintain a running sum of the current subarray, and reset if it becomes negative.
+Track the maximum sum encountered so far.
+Solution: Use Kadane's algorithm to compute the maximum subarray sum efficiently.
+
+25. MaxDoubleSliceSum
+Problem Breakdown:
+
+Find the maximal sum of any double slice (non-contiguous subarray).
+Algorithm:
+
+Use two arrays to store the maximum sums ending at each index and starting from each index.
+For each possible middle element, calculate the sum of the two non-overlapping slices.
+Solution: Use dynamic programming to calculate the maximum sums for the two slices and compute the maximal double slice sum.
+
+26. CountFactors
+Problem Breakdown:
+
+Count the number of divisors (factors) of a given number N.
+Algorithm:
+
+Iterate from 1 to sqrt(N) and check if i divides N.
+If i divides N, both i and N/i are factors.
+Solution: Use a loop to count factors efficiently, stopping at the square root of the number.
+
+27. MinPerimeterRectangle
+Problem Breakdown:
+
+Find the minimal perimeter of any rectangle whose area equals a given integer N.
+Algorithm:
+
+For each divisor of N, calculate the perimeter of the corresponding rectangle.
+Keep track of the minimum perimeter encountered.
+Solution: Use a loop to check each divisor and compute the minimal perimeter.
+
+28. Flags
+Problem Breakdown:
+
+Place flags on mountain peaks such that the distance between any two flags is at least K. Find the maximum number of flags that can be placed.
+Algorithm:
+
+Identify all the peaks.
+Use binary search to find the maximum number of flags that can be placed with the given constraints.
+Solution: Use a combination of peak detection and binary search to place the maximum number of flags.
+
+29. CountSemiprimes
+Problem Breakdown:
+
+Count the semiprimes (numbers that are the product of two primes) in a given range.
+Algorithm:
+
+Use the sieve of Eratosthenes to find all prime numbers up to N.
+Use the primes to find semiprimes and store their cumulative count.
+For each query, return the count of semiprimes in the given range.
+Solution: Use the sieve of Eratosthenes and dynamic programming to count semiprimes efficiently.
+
+30. Chocolates by Numbers
+Problem Breakdown:
+
+You start at position 0 and eat every M-th chocolate in a circle of N chocolates. Find how many chocolates you will eat before encountering an already eaten chocolate.
+Algorithm:
+
+The problem reduces to finding the greatest common divisor (GCD) of N and M.
+The number of chocolates eaten is N / GCD(N, M).
+Solution: Use the Euclidean algorithm to find the GCD and calculate the number of chocolates eaten.
+
+31. Common Prime Divisors
+Problem Breakdown:
+
+Check whether two numbers have the same prime divisors.
+Algorithm:
+
+For both numbers, divide out the greatest common divisor (GCD).
+If both numbers reduce to 1, they have the same prime divisors.
+Solution: Use the GCD and division to check if two numbers have the same prime divisors.
+
+32. Ladder
+Problem Breakdown:
+
+Find how many ways there are to climb a ladder with L rungs using either 1 or 2 steps at a time, modulo 2^B[i].
+Algorithm:
+
+Use dynamic programming to compute the number of ways to climb each rung (Fibonacci sequence).
+Use the modulo operation for each query.
+Solution: Use dynamic programming and modulo arithmetic to solve the problem efficiently.
+
+33. Fibonacci Numbers
+Problem Breakdown:
+
+Compute the Fibonacci numbers using dynamic programming or memoization.
+Algorithm:
+
+Start with the base cases F(0) = 0 and F(1) = 1.
+For each subsequent number, compute it as the sum of the two preceding numbers.
+Solution: Use dynamic programming to compute Fibonacci numbers efficiently.
+
+34. Binary Gap
+Problem Breakdown:
+
+Find the longest sequence of consecutive zeros surrounded by ones in the binary representation of an integer.
+Algorithm:
+
+Convert the integer to its binary form.
+Iterate through the binary string, tracking sequences of zeros between ones.
+Solution: Use string manipulation to find the longest sequence of zeros in the binary representation.
+
+35. Array Inversion Count
+Problem Breakdown:
+
+Count how many pairs of indices (i, j) exist such that i < j and A[i] > A[j].
+Algorithm:
+
+Use a modified merge sort algorithm to count inversions during the merging process.
+Solution: Use the merge sort algorithm and count inversions during the merge step.
+
+36. Peaks
+Problem Breakdown:
+
+Find the maximum number of blocks into which the array can be divided such that each block contains at least one peak.
+Algorithm:
+
+Identify all the peaks.
+Try dividing the array into k blocks and check if each block contains a peak.
+Solution: Use dynamic programming to check for peaks in different blocks of the array.
+
+37. MaxNonoverlappingSegments
+Problem Breakdown:
+
+Find the maximal set of non-overlapping segments.
+Algorithm:
+
+Sort the segments by their end points.
+Iterate through the segments and select the next segment only if it does not overlap with the previous one.
+Solution: Use a greedy approach to select non-overlapping segments.
+
+38. TieRopes
+Problem Breakdown:
+
+Tie adjacent ropes together until the total length of the ropes is greater than or equal to a given threshold K. Find the maximum number of ropes that can be tied.
+Algorithm:
+
+Traverse the array of rope lengths and accumulate the length of the ropes.
+Each time the accumulated length exceeds K, count the current group and reset the accumulator.
+Solution: Use a greedy approach to group ropes together and count the number of valid groups.
+
+39. Caterpillar Method
+Problem Breakdown:
+
+Use the caterpillar method to find a subarray that satisfies a given condition.
+Algorithm:
+
+Start with two pointers, one at the beginning of the array and one moving forward.
+Adjust the pointers as needed to satisfy the condition (e.g., sum of the subarray).
+Solution: Use two pointers to traverse the array and find subarrays that meet the condition.
+
+40. MinAbsSum of Two
+Problem Breakdown:
+
+Find the pair of integers in an array whose sum is closest to zero.
+Algorithm:
+
+Sort the array.
+Use two pointers, one starting from the beginning and one from the end, to find the pair with the smallest absolute sum.
+Solution: Use two pointers and sorting to find the pair with the smallest absolute sum.
+
+41. CountTriangles
+Problem Breakdown:
+
+Count the number of triangles that can be formed by three elements in an array.
+Algorithm:
+
+Sort the array.
+For each triplet, check if the sum of two sides is greater than the third side (i.e., the triangle inequality holds).
+Solution: Sort the array and use the triangle inequality to count the number of valid triplets.
+
+42. MaxAbsSliceSum
+Problem Breakdown:
+
+Find the maximal absolute sum of any slice.
+Algorithm:
+
+Use a variant of Kadane’s algorithm to keep track of both the maximum and minimum slice sums.
+The result will be the maximum of the absolute values of the sums.
+Solution: Modify Kadane’s algorithm to track the maximum and minimum slice sums and return the absolute maximum.
+
+43. Sum of Pairwise Products
+Problem Breakdown:
+
+Find the sum of the pairwise products of all elements in the array.
+Algorithm:
+
+Calculate the total sum of the array.
+For each element, multiply it by the remaining sum (after subtracting the current element).
+Solution: Use a mathematical approach to compute the pairwise products efficiently.
+
+44. Merge Intervals
+Problem Breakdown:
+
+Given a list of intervals, merge all overlapping intervals.
+Algorithm:
+
+Sort the intervals by their starting points.
+Traverse the sorted intervals and merge any overlapping intervals.
+Solution: Use sorting and a greedy approach to merge overlapping intervals.
+
+45. Longest Increasing Subsequence
+Problem Breakdown:
+
+Find the longest increasing subsequence in an array.
+Algorithm:
+
+Use dynamic programming to track the length of the longest subsequence ending at each index.
+For each element, check all previous elements to update the length of the subsequence.
+Solution: Use dynamic programming to solve the problem efficiently.
+
+46. Array Partitioning
+Problem Breakdown:
+
+Partition the array into two subarrays such that their sums are equal.
+Algorithm:
+
+Calculate the total sum of the array.
+Use dynamic programming to check if it is possible to partition the array into two equal parts.
+Solution: Use dynamic programming to check if a partition with equal sums exists.
+
+47. Smallest Subarray with Sum Greater than Given Value
+Problem Breakdown:
+
+Find the smallest subarray whose sum is greater than a given value.
+Algorithm:
+
+Use a sliding window approach to maintain a running sum of the subarray.
+Shrink the window from the left when the sum exceeds the target value.
+Solution: Use a sliding window to find the smallest subarray with the desired sum.
+
+48. Maximum Sum Subarray with At Least K Elements
+Problem Breakdown:
+
+Find the maximum sum of a subarray that contains at least K elements.
+Algorithm:
+
+Use dynamic programming to compute the maximum sum of subarrays ending at each index.
+Combine this information with a sliding window to find the maximum sum with at least K elements.
+Solution: Use dynamic programming and a sliding window to find the solution efficiently.
+
+49. Maximum Average Subarray
+Problem Breakdown:
+
+Find the contiguous subarray of size K that has the largest average.
+Algorithm:
+
+Calculate the sum of the first K elements.
+Use a sliding window to update the sum for subsequent subarrays and track the maximum sum.
+Solution: Use a sliding window to find the subarray with the largest average.
+
+50. K-th Largest Element
+Problem Breakdown:
+
+Find the K-th largest element in an array.
+Algorithm:
+
+Use a min-heap to track the K largest elements.
+After processing the entire array, the root of the heap will be the K-th largest element.
+Solution: Use a min-heap to solve the problem efficiently.

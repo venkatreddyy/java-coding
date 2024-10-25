@@ -1,0 +1,38 @@
+Easy Level
+============
+Binary Gap - Finding the longest sequence of zeros in binary representation.
+Odd Occurrences in Array - Finding the element without a pair.
+Cyclic Rotation - Rotating an array to the right by a given number.
+Frog Jump - Calculating minimum jumps to reach or pass a target.
+PermCheck - Checking if an array is a permutation.
+MissingInteger - Finding the smallest missing positive integer.
+TapeEquilibrium - Finding the minimal difference between two parts of a split array.
+Distinct - Counting distinct values in an array.
+MaxProductOfThree - Finding a maximum product of any triplet in an array.
+Count Div - Counting integers within a range that are divisible by a number.
+
+Medium Level
+============
+PassingCars - Counting passing cars represented by 0s and 1s in an array.
+GenomicRangeQuery - Performing multiple queries on a DNA sequence.
+MinAvgTwoSlice - Finding a slice with the minimal average in an array.
+EquiLeader - Finding an index at which the same leader is on both sides.
+NumberOfDiscIntersections - Counting intersecting pairs of discs.
+CountSemiprimes - Finding semiprimes within a specified range.
+MaxCounters - Operating on counters with increment and max counter operations.
+Peaks - Finding maximum number of blocks with a peak in each.
+MaxProfit - Calculating the maximum possible profit from stock prices.
+Flags - Placing flags on peaks and determining the maximum possible number.
+
+Hard Level
+==========
+NailingPlanks - Minimizing nails needed to nail all planks.
+MinPerimeterRectangle - Finding the minimal perimeter of a rectangle with a given area.
+ChocolatesByNumbers - Calculating the number of chocolates eaten in a circular array.
+CommonPrimeDivisors - Finding pairs with common prime divisors.
+FibFrog - Minimum jumps needed to cross a river filled with leaves.
+MinAbsSum - Finding the minimum absolute sum of array parts.
+MaxNonoverlappingSegments - Selecting maximum number of non-overlapping segments.
+TieRopes - Finding maximum number of ropes that can be tied.
+ArrayInversionCount - Counting inversions in an array (related to sorting).
+Ladder - Calculating ways to climb a ladder with Fibonacci sequences.

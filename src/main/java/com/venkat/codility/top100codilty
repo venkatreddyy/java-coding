@@ -1,0 +1,141 @@
+Here’s a breakdown of the Codility-style problems categorized into easy, medium, and hard levels across Java and SQL, focusing on foundational coding skills, algorithm design, and SQL queries.
+
+Easy
+Array and Basic Iteration (Java)
+Binary Gap
+Cyclic Rotation
+Odd Occurrences in Array
+Perm Missing Elem
+FrogJmp
+PermCheck
+CountDiv
+Passing Cars
+Distinct Elements in Array
+Majority Element
+Sorting and Searching (Java)
+Bubble Sort Implementation
+Selection Sort
+Binary Search on Sorted Array
+First Occurrence in Sorted Array
+Search Matrix Element in Row/Column Sorted Matrix
+Prefix Sums, Counting Elements (Java)
+Prefix Sum Calculation
+DNA Sequence Matching
+Subarray with Given Sum
+Check Subarray With Sum K
+Stack and Queue (Java)
+Balanced Parentheses
+Check for Duplicate Parentheses
+Implement Queue Using Stacks
+Implement Stack Using Queues
+Linked Lists (Java)
+Reverse Linked List
+Palindrome Linked List
+Remove Duplicates from Sorted Linked List
+String Manipulation (Java)
+Reverse Words in String
+Check Anagram
+Longest Common Prefix
+Convert Roman to Integer
+
+SQL Basics
+Basic SELECT Queries
+Aggregate Functions (SUM, AVG, COUNT)
+GROUP BY with HAVING
+JOIN Operations (INNER JOIN, LEFT JOIN)
+Conditional Aggregation
+
+
+    Medium
+============
+Array and Basic Iteration (Java)
+Tape Equilibrium
+Missing Integer
+MaxCounter
+Triangle Formation
+Max Product of Three
+Array Inversion Count
+Sorting and Searching (Java)
+Insertion Sort
+Merge Sort
+Quick Sort
+Minimum Rotations for Sorted Array
+Search in Rotated Sorted Array
+Prefix Sums, Counting Elements (Java)
+MinAvgTwoSlice
+EquiLeader
+Max Slice Sum (Kadane's Algorithm)
+Count SemiPrimes in Range
+Stack and Queue (Java)
+Bracket Matching
+Stone Wall Building
+Dominator in Array
+Stock Span Problem
+Evaluate Reverse Polish Notation
+Linked Lists (Java)
+Find Cycle in Linked List
+Merge Two Sorted Linked Lists
+Delete Node in Linked List
+Find Intersection Point of Two Linked Lists
+Rotate Linked List
+String Manipulation (Java)
+Longest Substring without Repeating Characters
+Isomorphic Strings
+Remove Adjacent Duplicates
+Simplify Directory Path
+Dynamic Programming (Java)
+Fibonacci Sequence
+Nth Catalan Number
+Coin Change Problem
+Longest Increasing Subsequence
+Maximum Subarray Sum
+Binary Search Trees (Java)
+Find Kth Smallest Element in BST
+Inorder Successor in BST
+Validate if Binary Tree is BST
+Lowest Common Ancestor in BST
+Graph Algorithms (Java)
+DFS and BFS Traversal
+Shortest Path in Unweighted Graph
+Count Islands in 2D Grid
+Check Bipartite Graph
+Union-Find with Path Compression
+SQL Medium
+Self-Joins
+Subqueries (Single Row and Multiple Row)
+Case Statements
+Window Functions (ROW_NUMBER, RANK)
+Common Table Expressions (CTE)
+
+
+    Hard
+========
+Array and Basic Iteration (Java)
+Flags on Peaks
+Mushroom Picker Maximum
+Sorting and Searching (Java)
+Sort List Using Merge Sort
+Prefix Sums, Counting Elements (Java)
+Genomic Range Query
+MinAvgTwoSlice with Constraints
+EquiLeader with Constraints
+Stack and Queue (Java)
+Nested Bracket Matching with Complex Cases
+Linked Lists (Java)
+Sort List Using Merge Sort
+Swap Nodes in Pairs with Constraints
+String Manipulation (Java)
+Longest Palindromic Subsequence
+Dynamic Programming (Java)
+House Robber Problem
+Number of Ways to Decode String
+Min Cost Climbing Stairs
+Binary Search Trees (Java)
+Delete Node in BST
+Closest Value in BST
+Range Sum of BST
+Graph Algorithms (Java)
+Cycle Detection in Undirected Graph
+Topological Sorting
+Minimum Spanning Tree
+Transitive Closure Matrix
