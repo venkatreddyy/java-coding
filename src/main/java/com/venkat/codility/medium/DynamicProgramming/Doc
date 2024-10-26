@@ -1,0 +1,23 @@
+Fibonacci Sequence
+Problem: Find the n-th Fibonacci number.
+Approach: Use dynamic programming to compute Fibonacci numbers iteratively with an array to store previously calculated values.
+
+Nth Catalan Number
+Problem: Calculate the n-th Catalan number, which appears in various combinatorial problems like counting valid parentheses, binary search trees, etc.
+Approach: Use dynamic programming with the recurrence relation: C(n) = Σ C(i) * C(n-i-1) for i from 0 to n-1.
+
+Coin Change Problem
+Problem: Given an amount and a list of coin denominations, find the minimum number of coins that make up the amount.
+Approach: Use dynamic programming with a 1D DP array, where each entry dp[i] represents the minimum coins required for amount i.
+
+Longest Increasing Subsequence
+Problem: Find the length of the longest increasing subsequence in an array of integers.
+Approach: Use dynamic programming with a 1D DP array where each entry dp[i] represents the length of the LIS ending at index i.
+
+Maximum Subarray Sum (Kadane's Algorithm)
+Problem: Find the maximum sum of a contiguous subarray in an array.
+Approach: Use Kadane’s algorithm, which maintains a running maximum and updates the global maximum when necessary.
+
+
+
+

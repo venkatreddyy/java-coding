@@ -1,0 +1,20 @@
+Find Cycle in Linked List
+Problem: Check if a linked list contains a cycle.
+Approach: Use Floyd’s Cycle-Finding Algorithm (Tortoise and Hare) by using two pointers. If they meet, there’s a cycle.
+
+Merge Two Sorted Linked Lists
+Problem: Merge two sorted linked lists into one sorted linked list.
+Approach: Use a dummy node to start the merged list. Traverse both lists and add the smaller element to the merged list.
+
+Delete Node in Linked List
+Problem: Given only access to the node to be deleted (not the head), delete the node.
+Approach: Copy the value from the next node to the current node, then unlink the next node.
+
+Find Intersection Point of Two Linked Lists
+Problem: Find the intersection point of two singly linked lists, if they intersect.
+Approach: Calculate the length of each list. Advance the pointer of the longer list by the difference in lengths, then traverse both lists to find the intersection point.
+
+Rotate Linked List
+Problem: Rotate a linked list to the right by k places.
+Approach: Make the list circular, then break it at the new head’s position after k rotations.
+

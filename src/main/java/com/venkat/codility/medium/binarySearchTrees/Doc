@@ -1,0 +1,18 @@
+Binary Search Trees (Java)
+Find Kth Smallest Element in BST
+Problem: Given a binary search tree (BST), find the k-th smallest element.
+Approach: Use an in-order traversal, which visits nodes in sorted order. Maintain a counter to stop at the k-th node.
+
+
+Inorder Successor in BST
+Problem: Find the in-order successor of a given node in a BST. The in-order successor of a node is the node with the smallest value greater than the given node’s value.
+Approach: If the node has a right child, the successor is the leftmost node in the right subtree. Otherwise, move up to find the first ancestor that’s larger than the node.
+
+Validate if Binary Tree is BST
+Problem: Determine if a binary tree is a valid binary search tree (BST).
+Approach: Use a recursive function to validate each node, ensuring the node’s value falls within allowed min and max bounds, updating bounds as you go.
+
+Lowest Common Ancestor in BST
+Problem: Given a binary search tree, find the lowest common ancestor (LCA) of two nodes. The LCA is the lowest node that has both nodes as descendants.
+Approach: Traverse the tree from the root. If both nodes are smaller, move left; if both are larger, move right. Otherwise, the current node is the LCA.
+

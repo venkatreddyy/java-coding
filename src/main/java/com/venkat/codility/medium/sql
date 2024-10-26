@@ -1,0 +1,186 @@
+1. Self-Joins
+Problem: Find pairs of employees who work in the same department.
+
+Example Data Input:
+
+sql
+Copy code
+CREATE TABLE employees (id INT, name VARCHAR(50), department_id INT);
+
+INSERT INTO employees (id, name, department_id) VALUES
+(1, 'Alice', 1),
+(2, 'Bob', 1),
+(3, 'Charlie', 2),
+(4, 'Diana', 2),
+(5, 'Eve', 1);
+Query:
+
+sql
+Copy code
+SELECT e1.name AS employee1, e2.name AS employee2
+FROM employees e1
+JOIN employees e2 ON e1.department_id = e2.department_id
+WHERE e1.id < e2.id;
+Expected Output:
+
+employee1	employee2
+Alice	Bob
+Alice	Eve
+Bob	Eve
+Charlie	Diana
+2. Subqueries (Single Row and Multiple Row)
+Problem: Find employees with a salary higher than the average salary.
+Example Data Input:
+
+sql
+Copy code
+CREATE TABLE employees (id INT, name VARCHAR(50), salary INT, department_id INT);
+
+INSERT INTO employees (id, name, salary, department_id) VALUES
+(1, 'Alice', 75000, 1),
+(2, 'Bob', 50000, 1),
+(3, 'Charlie', 60000, 2),
+(4, 'Diana', 80000, 2),
+(5, 'Eve', 55000, 1);
+Query:
+
+sql
+Copy code
+SELECT name, salary
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+Expected Output:
+
+name	salary
+Alice	75000
+Diana	80000
+Multiple-Row Subquery: Find employees in departments located in 'New York'.
+
+Additional Data Input:
+
+sql
+Copy code
+CREATE TABLE departments (department_id INT, location VARCHAR(50));
+
+INSERT INTO departments (department_id, location) VALUES
+(1, 'New York'),
+(2, 'San Francisco'),
+(3, 'New York');
+Query:
+
+sql
+Copy code
+SELECT name, department_id
+FROM employees
+WHERE department_id IN (SELECT department_id FROM departments WHERE location = 'New York');
+Expected Output:
+
+name	department_id
+Alice	1
+Bob	1
+Eve	1
+3. Case Statements
+Problem: Categorize employees’ salaries as 'High', 'Medium', or 'Low'.
+
+Example Data Input:
+
+sql
+Copy code
+CREATE TABLE employees (id INT, name VARCHAR(50), salary INT);
+
+INSERT INTO employees (id, name, salary) VALUES
+(1, 'Alice', 75000),
+(2, 'Bob', 50000),
+(3, 'Charlie', 30000),
+(4, 'Diana', 80000),
+(5, 'Eve', 60000);
+Query:
+
+sql
+Copy code
+SELECT name, salary,
+    CASE
+        WHEN salary >= 70000 THEN 'High'
+        WHEN salary >= 50000 THEN 'Medium'
+        ELSE 'Low'
+    END AS salary_level
+FROM employees;
+Expected Output:
+
+name	salary	salary_level
+Alice	75000	High
+Bob	50000	Medium
+Charlie	30000	Low
+Diana	80000	High
+Eve	60000	Medium
+4. Window Functions (ROW_NUMBER, RANK)
+Problem: Assign a unique row number to employees based on their salary within each department.
+
+Example Data Input:
+
+sql
+Copy code
+CREATE TABLE employees (id INT, name VARCHAR(50), salary INT, department_id INT);
+
+INSERT INTO employees (id, name, salary, department_id) VALUES
+(1, 'Alice', 75000, 1),
+(2, 'Bob', 50000, 1),
+(3, 'Charlie', 30000, 1),
+(4, 'Diana', 80000, 2),
+(5, 'Eve', 60000, 2);
+Query:
+
+sql
+Copy code
+SELECT name, department_id, salary,
+       ROW_NUMBER() OVER(PARTITION BY department_id ORDER BY salary DESC) AS row_num,
+       RANK() OVER(PARTITION BY department_id ORDER BY salary DESC) AS salary_rank
+FROM employees;
+Expected Output:
+
+name	department_id	salary	row_num	salary_rank
+Alice	1	75000	1	1
+Bob	1	50000	2	2
+Charlie	1	30000	3	3
+Diana	2	80000	1	1
+Eve	2	60000	2	2
+5. Common Table Expressions (CTE)
+Problem: Find the average salary by department and display departments with an average above 60,000.
+
+Example Data Input:
+
+sql
+Copy code
+CREATE TABLE employees (id INT, name VARCHAR(50), salary INT, department_id INT);
+
+INSERT INTO employees (id, name, salary, department_id) VALUES
+(1, 'Alice', 75000, 1),
+(2, 'Bob', 50000, 1),
+(3, 'Charlie', 30000, 1),
+(4, 'Diana', 80000, 2),
+(5, 'Eve', 60000, 2);
+Query:
+
+sql
+Copy code
+WITH DepartmentAverages AS (
+    SELECT department_id, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department_id
+)
+SELECT department_id, avg_salary
+FROM DepartmentAverages
+WHERE avg_salary > 60000;
+Expected Output:
+
+department_id	avg_salary
+1	51666.67
+2	70000.00
+These examples provide both data input and expected output for each SQL Medium concept:
+
+Self-Joins for finding relationships within the same table.
+Subqueries for both single-row and multiple-row conditions.
+Case Statements to add conditional logic within SQL.
+Window Functions to perform advanced analytics without grouping.
+Common Table Expressions (CTEs) to simplify complex queries by using temporary result sets.
+Let me know if you need further clarification or have additional SQL queries in mind!

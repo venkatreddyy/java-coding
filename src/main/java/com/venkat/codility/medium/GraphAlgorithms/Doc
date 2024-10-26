@@ -1,0 +1,20 @@
+DFS and BFS Traversal
+Problem: Implement Depth-First Search (DFS) and Breadth-First Search (BFS) traversals for a graph.
+Approach: Use a stack for DFS and a queue for BFS. Maintain a visited array to track visited nodes.
+
+Shortest Path in Unweighted Graph
+Problem: Find the shortest path from a source vertex to all other vertices in an unweighted graph.
+Approach: Use BFS to calculate the shortest path in an unweighted graph, as BFS explores neighbors level by level.
+
+Count Islands in 2D Grid
+Problem: Count the number of islands in a 2D grid where 1 represents land and 0 represents water.
+Approach: Use DFS or BFS to mark all cells in an island as visited by changing 1s to 0s.
+
+Check Bipartite Graph
+Problem: Check if a graph is bipartite, meaning it can be colored with two colors such that no two adjacent nodes have the same color.
+Approach: Use BFS to color nodes alternately and check for conflicts.
+
+Union-Find with Path Compression
+Problem: Implement Union-Find with path compression to efficiently manage and merge sets.
+Approach: Use path compression for finding the root and union by rank to merge sets.
+

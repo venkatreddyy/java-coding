@@ -1,0 +1,29 @@
+Tape Equilibrium
+
+Problem: Given an array A, divide it into two parts by splitting at each possible index. Find the minimum absolute difference between the sum of the first part and the sum of the second part.
+Approach: Use prefix sums to track the total and left sums for each split, minimizing the difference.
+
+Missing Integer
+
+Problem: Find the smallest positive integer (greater than 0) that does not occur in the array.
+Approach: Store positive integers in a HashSet for quick lookup. Check from 1 upwards to find the missing positive integer.
+
+MaxCounter
+
+Problem: Given N counters initialized to 0 and a sequence of operations, either increase a specific counter by 1 or set all counters to the maximum of any counter.
+Approach: Track the maximum counter and delay applying the "max" operation until necessary to avoid inefficient operations.
+
+Triangle Formation
+Problem: Given an array of integers, determine if any three integers can form the sides of a triangle.
+Approach: Sort the array and check if three consecutive elements satisfy the triangle inequality property.
+
+
+Max Product of Three
+Problem: Find the maximum product of any three integers in an array.
+Approach: Sort the array and calculate the maximum product of the largest three numbers or two smallest and one largest (to account for negatives).
+
+Array Inversion Count
+Problem: Count the number of inversions in an array, where an inversion is a pair of elements such that the first is greater than the second and appears before it in the array.
+Approach: Use a modified merge sort algorithm to count inversions while sorting.
+
+

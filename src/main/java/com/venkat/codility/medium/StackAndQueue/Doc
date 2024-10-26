@@ -1,0 +1,20 @@
+Bracket Matching
+Problem: Check if the brackets in a string are balanced. The input string contains characters (, ), {, }, [, and ].
+Approach: Use a stack to keep track of opening brackets. For each closing bracket, check if it matches the top of the stack.
+
+Stone Wall Building
+Problem: Given heights of wall segments, determine the minimum number of stone blocks needed to build the wall.
+Approach: Use a stack to maintain the heights of blocks. When a height is lower than the stack’s top, pop from the stack. Push new heights only when they’re unique.
+
+Dominator in Array
+Problem: Find an index of an element that occurs more than half the time in the array (dominator).
+Approach: Use a candidate selection approach (similar to Boyer-Moore Voting Algorithm) to find the potential dominator, then confirm by counting occurrences.
+
+Stock Span Problem
+Problem: For each day in a list of stock prices, find the number of consecutive days before it where the price was lower or equal.
+Approach: Use a stack to keep track of indices. For each price, pop from the stack until the current price is greater than the price at the index stored in the stack.
+
+Evaluate Reverse Polish Notation.
+Problem: Given a list of tokens in Reverse Polish Notation (RPN), evaluate the expression.
+Approach: Use a stack to store numbers. For each operator, pop the top two numbers, evaluate, and push the result back.
+

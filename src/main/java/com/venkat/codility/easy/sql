@@ -1,0 +1,122 @@
+SQL Basics
+Basic SELECT Queries
+
+Description: Fetch specific columns from a table.
+Query Example:
+sql
+Copy code
+-- Assume a table named `employees` with columns: `id`, `name`, `position`, `salary`
+SELECT id, name, position FROM employees;
+Example Input:
+plaintext
+Copy code
+Table: employees
+
+| id | name       | position      | salary |
+|----|------------|---------------|--------|
+| 1  | John Doe   | Manager       | 60000  |
+| 2  | Jane Smith | Developer     | 55000  |
+| 3  | Alice Lee  | Designer      | 50000  |
+Example Output:
+plaintext
+Copy code
+| id | name       | position      |
+|----|------------|---------------|
+| 1  | John Doe   | Manager       |
+| 2  | Jane Smith | Developer     |
+| 3  | Alice Lee  | Designer      |
+Aggregate Functions (SUM, AVG, COUNT)
+
+Description: Calculate totals, averages, and counts from columns.
+Query Example:
+sql
+Copy code
+-- Calculate total, average, and count of employee salaries
+SELECT SUM(salary) AS total_salary, AVG(salary) AS average_salary, COUNT(*) AS total_employees
+FROM employees;
+Example Output:
+plaintext
+Copy code
+| total_salary | average_salary | total_employees |
+|--------------|----------------|------------------|
+| 165000       | 55000          | 3               |
+GROUP BY with HAVING
+
+Description: Group data by one or more columns and filter groups using conditions.
+Query Example:
+sql
+Copy code
+-- Find the number of employees in each position, showing only positions with more than 1 employee
+SELECT position, COUNT(*) AS num_employees
+FROM employees
+GROUP BY position
+HAVING COUNT(*) > 1;
+Example Input:
+plaintext
+Copy code
+| id | name       | position      | salary |
+|----|------------|---------------|--------|
+| 1  | John Doe   | Manager       | 60000  |
+| 2  | Jane Smith | Developer     | 55000  |
+| 3  | Alice Lee  | Developer     | 50000  |
+Example Output:
+plaintext
+Copy code
+| position  | num_employees |
+|-----------|---------------|
+| Developer | 2             |
+JOIN Operations (INNER JOIN, LEFT JOIN)
+
+Description: Combine data from multiple tables based on a related column.
+Query Example:
+sql
+Copy code
+-- Assume two tables: employees and departments
+-- employees table: `id`, `name`, `department_id`
+-- departments table: `department_id`, `department_name`
+SELECT e.name, d.department_name
+FROM employees e
+INNER JOIN departments d ON e.department_id = d.department_id;
+Example Input:
+plaintext
+Copy code
+employees table:
+
+| id | name       | department_id |
+|----|------------|---------------|
+| 1  | John Doe   | 10            |
+| 2  | Jane Smith | 20            |
+| 3  | Alice Lee  | 10            |
+
+departments table:
+
+| department_id | department_name |
+|---------------|-----------------|
+| 10            | Marketing       |
+| 20            | Engineering     |
+Example Output:
+plaintext
+Copy code
+| name       | department_name |
+|------------|-----------------|
+| John Doe   | Marketing       |
+| Jane Smith | Engineering     |
+| Alice Lee  | Marketing       |
+Conditional Aggregation
+
+Description: Use CASE statements within aggregations to calculate conditional results.
+Query Example:
+sql
+Copy code
+-- Count the number of employees based on position
+SELECT
+    COUNT(CASE WHEN position = 'Manager' THEN 1 END) AS num_managers,
+    COUNT(CASE WHEN position = 'Developer' THEN 1 END) AS num_developers,
+    COUNT(CASE WHEN position = 'Designer' THEN 1 END) AS num_designers
+FROM employees;
+Example Output:
+plaintext
+Copy code
+| num_managers | num_developers | num_designers |
+|--------------|----------------|---------------|
+| 1            | 2              | 0             |

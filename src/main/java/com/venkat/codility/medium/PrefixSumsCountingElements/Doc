@@ -1,0 +1,16 @@
+MinAvgTwoSlice
+Problem: Given an array A, find the starting position of the slice with the minimal average. The slice can be of size 2 or 3.
+Approach: Only slices of size 2 or 3 need to be checked for minimal average since larger slices would not have a lower average than one of their sub-slices.
+
+EquiLeader
+Problem: Find the number of equi-leaders in the array, where an equi-leader is an element that is a leader in both halves of the array.
+Approach: Find the leader using a candidate approach, then count equi-leaders by dividing the array and checking conditions for leaders in each part.
+
+Max Slice Sum (Kadane's Algorithm)
+Problem: Find the maximum sum of any slice of the array.
+Approach: Use Kadane's algorithm to keep track of the maximum slice sum as we iterate through the array.
+
+
+Count SemiPrimes in Range
+Problem: Given an integer N and two arrays P and Q, count the number of semiprimes in each range [P[i], Q[i]]. A semiprime is a number with exactly two prime factors.
+Approach: Use the Sieve of Eratosthenes to identify primes, then mark semiprimes, and use prefix sums to efficiently count semiprimes in each range.

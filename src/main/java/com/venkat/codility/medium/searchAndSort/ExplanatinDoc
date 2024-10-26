@@ -1,0 +1,23 @@
+Sorting and Searching (Java)
+Insertion Sort
+
+Problem: Sort an array using the insertion sort algorithm.
+Approach: Iterate through the array, moving each element into its correct position in the sorted portion of the array.
+
+Merge Sort
+Problem: Sort an array using the merge sort algorithm.
+Approach: Recursively split the array into halves, sort each half, and merge the sorted halves.
+
+Quick Sort
+Problem: Sort an array using the quick sort algorithm.
+Approach: Choose a pivot, partition the array around the pivot, and recursively apply quicksort to the partitions.
+
+Minimum Rotations for Sorted Array
+Problem: Find the minimum number of rotations needed for a sorted array to return to its original order.
+Approach: For a rotated sorted array, the index of the minimum element gives the rotation count.
+
+Search in Rotated Sorted Array
+Problem: Given a rotated sorted array, find the index of a target element.
+Approach: Use a modified binary search to find the target in the rotated array.
+
+

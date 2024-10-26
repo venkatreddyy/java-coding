@@ -1,0 +1,16 @@
+String Manipulation (Java)
+Longest Substring without Repeating Characters
+Problem: Given a string, find the length of the longest substring without repeating characters.
+Approach: Use a sliding window with a HashSet to track characters. Expand the window by adding new characters and shrink it from the left if a duplicate is encountered.
+
+somorphic Strings
+Problem: Determine if two strings are isomorphic. Two strings are isomorphic if characters in one string can be replaced to get the other string, maintaining order.
+Approach: Use two HashMaps to store mappings from s to t and vice versa. Ensure the mapping is consistent for all characters.
+
+Remove Adjacent Duplicates
+Problem: Given a string, remove all adjacent duplicate characters. Repeat the removal until no duplicates remain.
+Approach: Use a stack to store characters. For each character, if it matches the stack’s top, remove it. Otherwise, push it onto the stack.
+
+Simplify Directory Path
+Problem: Simplify a Unix-style file path, converting it to its canonical path (e.g., /a/./b/../../c/ simplifies to /c).
+Approach: Split the path by /, and use a stack to process each part. Push directories onto the stack, ignore . and ``, and pop for ...
