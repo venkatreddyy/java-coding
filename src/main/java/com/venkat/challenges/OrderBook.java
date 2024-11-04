@@ -1,7 +1,25 @@
 package com.venkat.challenges;
 
 import java.util.*;
+/*
+insertOrder(orderId, price, qty) – Inserts an order with a specified order ID, price, and quantity.
+removeOrder(orderId) – Removes an order with the specified order ID.
+retrieveAllOrdersByPriority() – Retrieves all orders sorted by priority, where priority is determined by price and then by insert_time.
+Examples
+insertOrder(o1, 3.4, 100)
+insertOrder(o2, 3.5, 110)
+insertOrder(o3, 3.4, 200)
+After the above inserts:
 
+retrieveAllOrdersByPriority() should return:
+[(o2, 3.5, 110), (o1, 3.4, 100), (o3, 3.4, 200)]
+removeOrder(o1)
+
+After removal of o1:
+retrieveAllOrdersByPriority() should return:
+[(o2, 3.5, 110), (o3, 3.4, 200)]
+This class requires prioritizing orders by price (higher price has higher priority) and, if prices are the same, by insert_time (earlier orders have higher priority).
+ */
 class Order {
     String orderId;  // Order ID to uniquely identify the order
     double price;    // Price of the order

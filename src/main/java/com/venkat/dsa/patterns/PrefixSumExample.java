@@ -43,4 +43,8 @@ public class PrefixSumExample {
         System.out.println("\nSum from index " + l + " to " + r + ": " + getRangeSum(prefixSum, l, r));
     }
 }
+/*
+Prefix Sum Array: 2 6 12 20 30
+Sum from index 1 to 3: 18
+ */
 

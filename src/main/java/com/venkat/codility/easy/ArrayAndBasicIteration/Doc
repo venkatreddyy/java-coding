@@ -1,0 +1,206 @@
+Array and Basic Iteration (Java)
+Binary Gap
+
+Problem: Find the longest sequence of consecutive zeros surrounded by ones in a binary representation of a number.
+Algorithm: Convert the number to binary, then iterate to find the longest sequence of 0s between 1s.
+Solution: Traverse the binary string, updating the maximum gap length when a closing 1 is encountered.
+
+Cyclic Rotation
+Problem: Rotate an array to the right by a given number of steps.
+Algorithm: Use modular arithmetic to rearrange elements in a rotated order.
+Solution: Use slicing or modular index shifting to produce the rotated array in
+𝑂(𝑛)
+O(n)
+Odd Occurrences in Array.
+
+Problem: Find the element that appears an odd number of times in an array.
+Algorithm: Use XOR, as XOR of duplicate numbers results in 0, and a number XORed with 0 is the number itself.
+Solution: XOR all elements to find the odd-occurring element in
+𝑂(𝑛)
+O(n) time and
+𝑂(1)
+O(1) space.
+
+
+Perm Missing Elem
+Problem: Find the missing element in a sequence of consecutive integers.
+Algorithm: Calculate the expected sum for n elements and subtract the actual sum.
+Solution: Use the formula
+(𝑛+1)×(𝑛+2)/2−
+sum of elements
+(n+1)×(n+2)/2−sum of elements.
+
+
+
+FrogJmp
+
+Problem: Calculate the minimal number of jumps required for a frog to reach a target position.
+Algorithm: Compute jumps needed by dividing the distance by the jump length and rounding up.
+Solution: Use ceiling division to find minimal jumps.
+
+
+PermCheck
+
+Problem: Check if an array contains a permutation of the integers 1 through N.
+Algorithm: Use a set or sum comparison to ensure all elements from 1 to N are present.
+Solution: Compare sums or use a boolean array to validate if all elements appear exactly once.
+CountDiv
+
+Problem: Count numbers divisible by a specific integer within a given range.
+Algorithm: Use arithmetic to calculate the range’s boundaries for divisible values.
+Solution: Calculate the range count using (B / K) - ((A - 1) / K).
+Passing Cars
+
+Problem: Count pairs of passing cars traveling in opposite directions.
+Algorithm: Traverse the array, counting occurrences of "0" and multiplying by the trailing "1"s.
+Solution: Track the count of zeroes and sum passing pairs up to a limit.
+Distinct Elements in Array
+
+Problem: Count the number of distinct values in an array.
+Algorithm: Use a set to store unique values.
+Solution: Add elements to a set and return the set’s size.
+Majority Element
+
+Problem: Find the element that appears more than half the time in an array.
+Algorithm: Use the Boyer-Moore Voting Algorithm to find the majority element.
+Solution: Track the majority candidate and count to verify if it appears > n/2 times.
+Sorting and Searching (Java)
+Bubble Sort Implementation
+
+Problem: Implement Bubble Sort to sort an array.
+Algorithm: Repeatedly swap adjacent elements if they’re in the wrong order.
+Solution: Use nested loops to iterate until no swaps occur in a pass.
+Selection Sort
+
+Problem: Implement Selection Sort to sort an array.
+Algorithm: Find the minimum element and place it at the start, incrementally building the sorted portion.
+Solution: Use two loops: one to track sorted sections and one to find minimum elements.
+Binary Search on Sorted Array
+
+Problem: Search for a target in a sorted array.
+Algorithm: Use binary search to halve the search space iteratively.
+Solution: Check midpoints, adjusting left or right bounds as necessary.
+First Occurrence in Sorted Array
+
+Problem: Find the first occurrence of a target in a sorted array.
+Algorithm: Use binary search with additional checks for the first occurrence.
+Solution: Use binary search and continue narrowing even when the target is found.
+Search Matrix Element in Row/Column Sorted Matrix
+
+Problem: Search for an element in a matrix sorted by rows and columns.
+Algorithm: Start at top-right and move left or down based on comparisons.
+Solution: Use row and column pointers to find the element in
+𝑂
+(
+𝑛
++
+𝑚
+)
+O(n+m).
+Prefix Sums, Counting Elements (Java)
+Prefix Sum Calculation
+
+Problem: Calculate cumulative sums in an array.
+Algorithm: Create a prefix sum array where each element is the sum up to that index.
+Solution: Build prefix sums with a running total for constant-time range queries.
+DNA Sequence Matching
+
+Problem: Find the minimum nucleotide in a sequence segment.
+Algorithm: Use prefix sums to track occurrences of each nucleotide.
+Solution: Check counts between indices for minimum values efficiently.
+Subarray with Given Sum
+
+Problem: Find subarrays that sum to a specific target.
+Algorithm: Use a sliding window or hash map to accumulate sums.
+Solution: Track cumulative sums and adjust to meet the target sum.
+Check Subarray With Sum K
+
+Problem: Check if any subarray sums to a given integer
+𝐾
+K.
+Algorithm: Use a hashmap to store cumulative sums and check differences.
+Solution: If
+sum
+−
+𝐾
+sum−K is found in map, there’s a matching subarray.
+Stack and Queue (Java)
+Balanced Parentheses
+
+Problem: Check if the parentheses in a string are balanced.
+Algorithm: Use a stack to match opening and closing brackets.
+Solution: Push opening and pop matching closing brackets from stack.
+Check for Duplicate Parentheses
+
+Problem: Detect if there are any duplicate parentheses.
+Algorithm: Use a stack to detect redundant brackets.
+Solution: Look for unnecessary parentheses around operators or elements.
+Implement Queue Using Stacks
+
+Problem: Implement a queue using two stacks.
+Algorithm: Use one stack for enqueue and another for dequeue.
+Solution: Transfer elements between stacks to simulate FIFO.
+Implement Stack Using Queues
+
+Problem: Implement a stack using two queues.
+Algorithm: Use two queues to reverse order and simulate LIFO.
+Solution: Shift elements to achieve stack behavior.
+Linked Lists (Java)
+Reverse Linked List
+
+Problem: Reverse a singly linked list.
+Algorithm: Use three pointers to reverse the next pointers.
+Solution: Iterate, adjusting each node to point backward.
+Palindrome Linked List
+
+Problem: Check if a linked list is a palindrome.
+Algorithm: Find the middle, reverse the second half, and compare.
+Solution: Use fast and slow pointers, then compare halves.
+Remove Duplicates from Sorted Linked List
+
+Problem: Remove duplicates from a sorted linked list.
+Algorithm: Traverse the list, skipping over duplicates.
+Solution: Adjust pointers to remove nodes with duplicate values.
+String Manipulation (Java)
+Reverse Words in String
+
+Problem: Reverse the order of words in a string.
+Algorithm: Split by spaces, then reverse the word array.
+Solution: Join reversed words with spaces.
+Check Anagram
+
+Problem: Check if two strings are anagrams.
+Algorithm: Sort both strings or use a frequency count.
+Solution: Compare sorted strings or hash character counts.
+Longest Common Prefix
+
+Problem: Find the longest common prefix in an array of strings.
+Algorithm: Compare characters of each string, stopping on mismatch.
+Solution: Iterate character-wise until divergence.
+Convert Roman to Integer
+
+Problem: Convert a Roman numeral to an integer.
+Algorithm: Iterate symbols, add or subtract based on values.
+Solution: Adjust sums based on relative symbol positions.
+SQL Basics
+Basic SELECT Queries
+
+Problem: Write basic SELECT statements to fetch data.
+Solution: Use SELECT to specify columns and FROM for tables.
+Aggregate Functions (SUM, AVG, COUNT)
+
+Problem: Use aggregate functions to calculate totals, averages, and counts.
+Solution: Apply SUM, AVG, and COUNT on columns as needed.
+GROUP BY with HAVING
+
+Problem: Group data and filter groups with specific conditions.
+Solution: Use GROUP BY and HAVING to group and filter results.
+JOIN Operations (INNER JOIN, LEFT JOIN)
+
+Problem: Use JOINs to combine data from multiple tables.
+Solution: Use INNER JOIN, LEFT JOIN as needed to merge rows.
+Conditional Aggregation
+
+Problem: Use CASE statements within aggregations.
+Solution: Use CASE within aggregates like SUM for conditional sums.
+Each solution follows a straightforward, efficient approach for common array, string, and database operations. Let me know if you need further details on any specific algorithm!

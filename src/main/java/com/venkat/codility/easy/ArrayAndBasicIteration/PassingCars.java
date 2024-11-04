@@ -5,8 +5,10 @@ public class PassingCars {
         int countZero = 0, pairs = 0;
         // Track pairs of cars passing in opposite directions
         for (int car : A) {
-            if (car == 0) countZero++;
-            else pairs += countZero;
+            if (car == 0)
+                countZero++;
+            else pairs +=
+                    countZero;
             if (pairs > 1_000_000_000) return -1;
         }
         return pairs;

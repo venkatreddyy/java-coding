@@ -1,6 +1,5 @@
 1. Find the Missing Integer
 Problem Breakdown:
-
 We need to find the smallest positive integer that is missing from the given array.
 The input array can contain both negative and positive integers, but we only care about positive integers for this task.
 Algorithm:
@@ -13,7 +12,6 @@ Solution: Use a HashSet to store all positive integers. Then iterate from 1 upwa
 
 2. Cyclic Rotation
 Problem Breakdown:
-
 Rotate an array A of N integers K times.
 After K rotations, elements from the end of the array shift to the beginning.
 Algorithm:
@@ -24,16 +22,13 @@ Solution: Use array manipulation and modulo arithmetic to handle rotations effic
 
 3. Odd Occurrences in Array
 Problem Breakdown:
-
 We are given an array where each element occurs an even number of times except for one element that occurs an odd number of times.
 Algorithm:
-
 XOR all elements together. XOR of two same numbers cancels out, so the result will be the number that appears an odd number of times.
 Solution: Leverage the XOR operation to find the element that occurs an odd number of times.
 
 4. Max Counters
 Problem Breakdown:
-
 There are N counters, and we perform a sequence of operations on them, either increasing a specific counter or setting all counters to the maximum value.
 Algorithm:
 
@@ -44,7 +39,6 @@ Solution: Use an array to track counter values and keep track of the maximum val
 
 5. Tape Equilibrium
 Problem Breakdown:
-
 We need to split an array A into two parts and find the minimal difference between the sums of the two parts.
 Algorithm:
 
@@ -55,7 +49,6 @@ Solution: Use a prefix sum approach to calculate the difference between the two 
 
 6. PermCheck
 Problem Breakdown:
-
 Check if a given array is a permutation of integers from 1 to N.
 Algorithm:
 
@@ -503,10 +496,8 @@ Solution: Use a sliding window to find the subarray with the largest average.
 
 50. K-th Largest Element
 Problem Breakdown:
-
 Find the K-th largest element in an array.
 Algorithm:
-
 Use a min-heap to track the K largest elements.
 After processing the entire array, the root of the heap will be the K-th largest element.
 Solution: Use a min-heap to solve the problem efficiently.

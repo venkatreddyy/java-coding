@@ -5,7 +5,8 @@ public class MajorityElement {
         int candidate = nums[0], count = 0;
         // Use Boyer-Moore Voting Algorithm to find the majority element
         for (int num : nums) {
-            if (count == 0) candidate = num;
+            if (count == 0)
+                candidate = num;
             count += (num == candidate) ? 1 : -1;
         }
         return candidate;
