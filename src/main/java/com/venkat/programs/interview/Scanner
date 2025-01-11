@@ -1,0 +1,235 @@
+@SpringBootTest
+@AutoConfigureMockMvc
+public class ScanControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private ScanService scanService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    public void testGetScanById() throws Exception {
+        Scan scan = new Scan();
+        scan.setId(1L);
+        scan.setDomainName("testdomain.com");
+
+        when(scanService.getScanById(1L)).thenReturn(scan);
+
+        mockMvc.perform(get("/scan/1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.domainName").value("testdomain.com"));
+    }
+
+    @Test
+    public void testDeleteScanById() throws Exception {
+        mockMvc.perform(delete("/scan/1"))
+            .andExpect(status().isOk());
+
+        verify(scanService, times(1)).deleteScanById(1L);
+    }
+
+    @Test
+    public void testSearchScans() throws Exception {
+        List<Scan> scans = Arrays.asList(
+            new Scan(1L, "testdomain.com", 100, 5, 10, false),
+            new Scan(2L, "testdomain.com", 200, 10, 15, false)
+        );
+
+        when(scanService.searchScansByDomainName("testdomain.com", "numPages")).thenReturn(scans);
+
+        mockMvc.perform(get("/scan/search/testdomain.com")
+                .param("orderBy", "numPages"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$[0].domainName").value("testdomain.com"));
+    }
+
+    // Add more tests for corner cases, invalid input, etc.
+}
+
+
+
+
+@RestController
+@RequestMapping("/scan")
+public class ScanController {
+
+    @Autowired
+    private ScanService scanService;
+
+    // GET /scan/{id} - Fetch Scan by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Scan> getScanById(@PathVariable Long id) {
+        Scan scan = scanService.getScanById(id);
+        return ResponseEntity.ok(scan);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        scanService.deleteScanById(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/search/{domainName}")
+    public ResponseEntity<List<Scan>> searchScans(
+            @PathVariable String domainName,
+            @RequestParam String orderBy) {
+        List<Scan> scans = scanService.searchScansByDomainName(domainName, orderBy);
+        return ResponseEntity.ok(scans);
+    }
+}
+
+
+@Service
+public class ScanService {
+
+    @Autowired
+    private ScanRepository scanRepository;
+
+    // Get a Scan by ID, throw 404 if not found or deleted
+    public Scan getScanById(Long id) {
+        return scanRepository.findByIdAndDeletedFalse(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Scan not found"));
+    }
+
+    // Logically delete a Scan (set deleted = true)
+    public void deleteScanById(Long id) {
+        Scan scan = scanRepository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Scan not found"));
+        scan.setDeleted(true);
+        scanRepository.save(scan);
+    }
+
+    // Search by domain name and sort by numPages or other fields, handle invalid sorting field with 400 error
+    public List<Scan> searchScansByDomainName(String domainName, String orderBy) {
+        try {
+            Sort sort = Sort.by(Sort.Direction.ASC, orderBy);
+            return scanRepository.findByDomainNameAndDeletedFalse(domainName, sort);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid orderBy parameter");
+        }
+    }
+}
+
+
+
+package com.venkat.designpatterns;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class ScanControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private ScanService scanService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    public void testGetScanById() throws Exception {
+        Scan scan = new Scan();
+        scan.setId(1L);
+        scan.setDomainName("testdomain.com");
+
+        when(scanService.getScanById(1L)).thenReturn(scan);
+
+        mockMvc.perform(get("/scan/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.domainName").value("testdomain.com"));
+    }
+
+    @Test
+    public void testDeleteScanById() throws Exception {
+        mockMvc.perform(delete("/scan/1"))
+                .andExpect(status().isOk());
+
+        verify(scanService, times(1)).deleteScanById(1L);
+    }
+
+    @Test
+    public void testSearchScans() throws Exception {
+        List<Scan> scans = Arrays.asList(
+                new Scan(1L, "testdomain.com", 100, 5, 10, false),
+                new Scan(2L, "testdomain.com", 200, 10, 15, false)
+        );
+
+        when(scanService.searchScansByDomainName("testdomain.com", "numPages")).thenReturn(scans);
+
+        mockMvc.perform(get("/scan/search/testdomain.com")
+                        .param("orderBy", "numPages"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].domainName").value("testdomain.com"));
+    }
+
+    // Add more tests for corner cases, invalid input, etc.
+}
+
+
+
+
+@RestController
+@RequestMapping("/scan")
+public class ScanController {
+
+    @Autowired
+    private ScanService scanService;
+
+    // GET /scan/{id} - Fetch Scan by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Scan> getScanById(@PathVariable Long id) {
+        Scan scan = scanService.getScanById(id);
+        return ResponseEntity.ok(scan);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        scanService.deleteScanById(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/search/{domainName}")
+    public ResponseEntity<List<Scan>> searchScans(
+            @PathVariable String domainName,
+            @RequestParam String orderBy) {
+        List<Scan> scans = scanService.searchScansByDomainName(domainName, orderBy);
+        return ResponseEntity.ok(scans);
+    }
+}
+
+
+@Service
+public class ScanService {
+
+    @Autowired
+    private ScanRepository scanRepository;
+
+    // Get a Scan by ID, throw 404 if not found or deleted
+    public Scan getScanById(Long id) {
+        return scanRepository.findByIdAndDeletedFalse(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Scan not found"));
+    }
+
+    // Logically delete a Scan (set deleted = true)
+    public void deleteScanById(Long id) {
+        Scan scan = scanRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Scan not found"));
+        scan.setDeleted(true);
+        scanRepository.save(scan);
+    }
+
+    // Search by domain name and sort by numPages or other fields, handle invalid sorting field with 400 error
+    public List<Scan> searchScansByDomainName(String domainName, String orderBy) {
+        try {
+            Sort sort = Sort.by(Sort.Direction.ASC, orderBy);
+            return scanRepository.findByDomainNameAndDeletedFalse(domainName, sort);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid orderBy parameter");
+        }
+    }
+}

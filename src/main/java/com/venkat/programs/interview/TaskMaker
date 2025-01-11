@@ -1,0 +1,106 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
+public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String description;
+
+    private Long priority;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Long priority) {
+        this.priority = priority;
+    }
+}
+
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/tasks")
+public class TaskController {
+
+    @Autowired
+    private TaskRepository taskRepository;
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateTask(
+            @PathVariable Long id,
+            @Valid @RequestBody Task taskDetails) {
+
+        Optional<Task> optionalTask = taskRepository.findById(id);
+
+        if (!optionalTask.isPresent()) {
+            return new ResponseEntity<>(new ErrorResponse("Cannot find task with given id", 404), HttpStatus.NOT_FOUND);
+        }
+
+        // Validate the task description
+        if (taskDetails.getDescription() == null || taskDetails.getDescription().trim().isEmpty()) {
+            return new ResponseEntity<>(new ErrorResponse("Task description is required", 400), HttpStatus.BAD_REQUEST);
+        }
+
+	  Task task = optionalTask.get();
+        // Update task details
+        task.setDescription(taskDetails.getDescription());
+        task.setPriority(taskDetails.getPriority());
+
+        // Save updated task
+        taskRepository.save(task);
+
+        return ResponseEntity.ok(task);
+    }
+
+    // Helper class for error responses
+    static class ErrorResponse {
+        private String message;
+        private int status;
+
+        public ErrorResponse(String message, int status) {
+            this.message = message;
+            this.status = status;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+    }
+}
