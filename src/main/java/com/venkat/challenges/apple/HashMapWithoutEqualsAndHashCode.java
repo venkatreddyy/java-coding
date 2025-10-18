@@ -1,4 +1,4 @@
-package com.venkat.challenges.top15;
+package com.venkat.challenges.apple;
 
 import java.util.HashMap;
 import java.util.Map;

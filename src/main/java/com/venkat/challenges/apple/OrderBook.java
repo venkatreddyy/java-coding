@@ -1,4 +1,4 @@
-package com.venkat.challenges;
+package com.venkat.challenges.apple;
 
 import java.util.*;
 /*
